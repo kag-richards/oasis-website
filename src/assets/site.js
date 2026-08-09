@@ -6,36 +6,6 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- Theme toggle ---- */
-  var root = document.documentElement;
-  var themeBtn = document.getElementById('theme-toggle');
-  var meta = document.querySelector('meta[name="theme-color"]');
-
-  function applyTheme(t) {
-    root.setAttribute('data-theme', t);
-    if (meta) meta.setAttribute('content', t === 'dark' ? '#0E1F21' : '#FAF6EA');
-    if (themeBtn) themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
-  }
-  applyTheme(root.getAttribute('data-theme') || 'light');
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem('owc-theme', next); } catch (e) {}
-    });
-  }
-
-  // Follow the OS only while the visitor has not made an explicit choice.
-  var mq = window.matchMedia('(prefers-color-scheme: dark)');
-  var onScheme = function (e) {
-    var saved = null;
-    try { saved = localStorage.getItem('owc-theme'); } catch (err) {}
-    if (!saved) applyTheme(e.matches ? 'dark' : 'light');
-  };
-  if (mq.addEventListener) mq.addEventListener('change', onScheme);
-  else if (mq.addListener) mq.addListener(onScheme);
-
   /* ---- Sticky nav background ---- */
   var nav = document.querySelector('.site-nav');
   if (nav) {
