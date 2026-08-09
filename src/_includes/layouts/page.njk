@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+
+<header class="page-head">
+  <div class="wrap">
+    <h1>{{ hero_heading or title }}</h1>
+    {% if hero_subtext %}<p>{{ hero_subtext }}</p>{% endif %}
+  </div>
+</header>
+
+{% if wide %}
+  {{ content | safe }}
+{% else %}
+<article class="prose">
+  {{ content | safe }}
+</article>
+{% endif %}

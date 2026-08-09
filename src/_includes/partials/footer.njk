@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="/assets/images/logo-lockup-reversed.svg" alt="{{ site.title }}" width="320" height="100">
+        <p class="footer-mission">{{ site.tagline }}</p>
+        <p class="footer-safety">Our housing location is kept confidential to protect the safety of the women we serve.</p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/programs/">Our Programs</a></li>
+          <li><a href="/give/">Ways to Give</a></li>
+          <li><a href="/blog/">News</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Reach Us</h4>
+        <ul>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><a href="tel:{{ site.phone | replace('-', '') }}">{{ site.phone }}</a></li>
+          <li>{{ site.city }}, {{ site.state }} {{ site.zip }}</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Support the House</h4>
+        <p style="margin-bottom:20px;line-height:1.7;">Every gift right now goes toward opening our first transitional home in Denton County.</p>
+        <a class="btn btn-primary" href="/give/" style="padding:13px 26px;font-size:14.5px;">
+          Give today
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <span>&copy; {% year %} {{ site.title }}. All rights reserved.</span>
+      <span>{{ site.legal_status }} &middot; EIN {{ site.ein }}</span>
+    </div>
+  </div>
+</footer>

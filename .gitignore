@@ -1,0 +1,17 @@
+# 11ty output
+_site/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local

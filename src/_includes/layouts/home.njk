@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+---
+
+<section class="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-sun" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="hero-content">
+      <span class="badge reveal">{{ hero_badge }}</span>
+      <h1 class="reveal d1">{{ hero_heading | safe }}</h1>
+      <p class="hero-sub reveal d2">{{ hero_subtext }}</p>
+      <div class="hero-actions reveal d3">
+        <a class="btn btn-primary" href="/give/">
+          Give toward the house
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-glass" href="/programs/">See the plan</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="waves" aria-hidden="true">
+    <span class="wave-a"></span>
+    <span class="wave-b"></span>
+    <span class="wave-c"></span>
+  </div>
+</section>
+
+{{ content | safe }}

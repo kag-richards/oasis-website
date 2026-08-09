@@ -1,0 +1,95 @@
+# Decap CMS — Oasis Women Center
+#
+# Keisha logs in at /admin/, edits content through forms, hits Save. Decap
+# commits to GitHub on her behalf and the Action rebuilds the site.
+#
+# BEFORE FIRST DEPLOY:
+#   1. Create the repo under Keisha's GitHub account (see backend.repo below).
+#   2. Comment out the `test-repo` backend and uncomment the github backend.
+#   3. Register the repo with the Netlify OAuth proxy (see STARTER.md step 3).
+
+# LOCAL PREVIEW ONLY — lets the admin UI load without OAuth.
+# Swap to the github block below before pushing to production.
+backend:
+  name: test-repo
+
+# Production backend:
+# backend:
+#   name: github
+#   repo: oasis-women-center/oasis-website   # confirm the exact org/repo once created
+#   branch: main
+#   base_url: https://api.netlify.com
+#   auth_endpoint: auth
+
+site_url: https://oasiswomencenter.org
+display_url: https://oasiswomencenter.org
+logo_url: /assets/images/logo-lockup.svg
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "Page Title (browser tab)", name: "title", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "hidden"}
+      - {label: "URL Path", name: "permalink", widget: "hidden"}
+      - {label: "Full Width Layout", name: "wide", widget: "hidden", required: false}
+      - {label: "Hero Heading", name: "hero_heading", widget: "string", required: false}
+      - {label: "Hero Subtext", name: "hero_subtext", widget: "text", required: false}
+      - {label: "Hero Background Photo", name: "hero_image", widget: "image", required: false, hint: "Optional. Sits behind the hero at low opacity. Wide photos work best."}
+      - {label: "Page Content", name: "body", widget: "markdown"}
+      - {label: "Meta Description (Google search)", name: "meta_description", widget: "text", required: false, hint: "About 155 characters. Shown in Google results and link previews."}
+
+  - name: "team"
+    label: "Board & Team"
+    folder: "src/content/team"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Full Name", name: "name", widget: "string"}
+      - {label: "Title / Role", name: "role", widget: "string"}
+      - {label: "Photo", name: "photo", widget: "image", required: false}
+      - {label: "Display Order", name: "order", widget: "number", required: false, hint: "Lower number appears first."}
+      - {label: "Short Bio", name: "body", widget: "markdown", required: false}
+
+  - name: "blog"
+    label: "News & Updates"
+    folder: "src/content/blog"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Excerpt", name: "excerpt", widget: "text", hint: "One or two sentences. Shown in the news list."}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+
+  - name: "data"
+    label: "Site Settings"
+    files:
+      - name: "site_meta"
+        label: "Organization Details"
+        file: "src/content/_data/site.json"
+        fields:
+          - {label: "Organization Name", name: "title", widget: "string"}
+          - {label: "Mission Line (used in footer and link previews)", name: "tagline", widget: "string"}
+          - {label: "Contact Email", name: "email", widget: "string"}
+          - {label: "Phone Number", name: "phone", widget: "string"}
+          - {label: "Website URL", name: "url", widget: "string"}
+          - {label: "City", name: "city", widget: "string"}
+          - {label: "State", name: "state", widget: "string"}
+          - {label: "ZIP Code", name: "zip", widget: "string"}
+          - {label: "Service Area", name: "service_area", widget: "string"}
+          - {label: "EIN", name: "ein", widget: "string"}
+          - {label: "Legal Status Line", name: "legal_status", widget: "string"}
+          - {label: "Donation Link", name: "donation_url", widget: "string", required: false, hint: "Paste the Stripe checkout link here once the Stripe account is live. Leaving it blank shows an email fallback instead."}
+          - {label: "Social Share Image", name: "social_image", widget: "image", required: false}

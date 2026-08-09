@@ -1,0 +1,14 @@
+{
+  "name": "dcdc-static-cms-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DCDC reusable static-site starter: 11ty + Decap CMS + GitHub Pages. Clone per client.",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --quiet",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

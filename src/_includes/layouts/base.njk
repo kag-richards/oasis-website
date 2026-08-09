@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <meta name="description" content="{{ meta_description or site.tagline }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ meta_description or site.tagline }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% if site.social_image %}<meta property="og:image" content="{{ site.url }}{{ site.social_image }}">{% endif %}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{{ meta_description or site.tagline }}">
+  {% if site.social_image %}<meta name="twitter:image" content="{{ site.url }}{{ site.social_image }}">{% endif %}
+
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <meta name="theme-color" content="#46686A">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;450;500;600;700&display=swap">
+
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.className += " js";
+      var saved = null;
+      try { saved = localStorage.getItem("owc-theme"); } catch (e) {}
+      var t = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      d.setAttribute("data-theme", t);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/site.css">
+
+  {# Organization schema. Street address is deliberately omitted: this is a
+     residential program and the housing location is confidential. #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "email": "{{ site.email }}",
+    "telephone": "{{ site.phone }}",
+    "taxID": "{{ site.ein }}",
+    "description": "{{ site.tagline }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ site.city }}",
+      "addressRegion": "{{ site.state }}",
+      "postalCode": "{{ site.zip }}",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "partials/nav.njk" %}
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>
