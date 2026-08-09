@@ -9,9 +9,9 @@ layout: layouts/base.njk
 
   <div class="wrap">
     <div class="hero-content">
-      <span class="badge reveal">{{ hero_badge }}</span>
-      <h1 class="reveal d1">{{ hero_heading | safe }}</h1>
-      <p class="hero-sub reveal d2">{{ hero_subtext }}</p>
+      <span class="badge reveal">{{ home.badge }}</span>
+      <h1 class="reveal d1">{{ home.heading_line1 }}<br>{{ home.heading_pre }} <em>{{ home.heading_accent }}</em> {{ home.heading_post }}</h1>
+      <p class="hero-sub reveal d2">{{ home.subtext }}</p>
       <div class="hero-actions reveal d3">
         <a class="btn btn-primary" href="/give/">
           Give toward the house

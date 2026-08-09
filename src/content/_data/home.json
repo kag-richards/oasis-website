@@ -1,0 +1,26 @@
+{
+  "badge": "Corinth and Denton County, Texas",
+  "heading_line1": "She finished treatment.",
+  "heading_pre": "Now she needs",
+  "heading_accent": "somewhere safe",
+  "heading_post": "to go.",
+  "subtext": "Oasis Women Center is opening a transitional home for women who have completed a recovery program and have nowhere stable to land.",
+  "progress_label": "Toward the first home",
+  "progress_percent": 18,
+  "progress_status": "Groundwork laid",
+  "progress_note": "Lease not yet signed",
+  "stats": [
+    { "number": "8",     "label": "Women housed at one time" },
+    { "number": "4",     "label": "Bedrooms plus shared program space" },
+    { "number": "12–24", "label": "Months each resident can stay" },
+    { "number": "$400",  "label": "Monthly fee, far below market, waived when needed" }
+  ],
+  "milestones": [
+    { "state": "done", "title": "501(c)(3) status secured",      "detail": "Recognized by the IRS. Gifts are tax deductible." },
+    { "state": "done", "title": "Board seated, bylaws adopted",  "detail": "Governance and conflict of interest policy in place." },
+    { "state": "done", "title": "Program designed in full",      "detail": "Four pillars, intake criteria, and service plans documented." },
+    { "state": "now",  "title": "Funding the lease",             "detail": "Where we are now. This is what your gift pays for." },
+    { "state": "next", "title": "Doors open",                    "detail": "First eight residents move in." }
+  ],
+  "disclosure": "We are pre-house. No woman has moved in yet, and we will not pretend otherwise. What exists today is 501(c)(3) status, a seated board, a program designed in detail, and a community starting to fund it. The house is the next step, and it is the step your gift pays for."
+}

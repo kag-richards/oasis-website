@@ -86,10 +86,12 @@ two-column grids and produced invalid `<p><div>` nesting. About, Programs, and
 Contact stay as `.md` because they are prose, which is what Keisha should be
 editing anyway.
 
-**CMS consequence:** the Decap `pages` collection should be re-pointed at the
-three markdown pages, with the homepage exposed later as a file collection of
-structured fields (hero heading, badge, stats, milestones) rather than a raw
-body. Until then, editing the homepage means editing `index.njk`.
+**CMS handled.** Folder collections are pinned to `extension: "md"`, so the
+`.njk` pages are excluded automatically. The homepage is exposed instead as a
+**file collection of structured fields** backed by `src/content/_data/home.json`
+— badge, headline parts, opening paragraph, progress card, the four key numbers,
+the five milestones, and the honesty note. Keisha edits words and numbers; the
+layout is never an editable body, so she cannot delete a grid by accident.
 
 ## Imagery
 
@@ -116,14 +118,18 @@ there are real ones.
 
 ## Still to wire up
 
-1. **GitHub repo** under Keisha's account, then flip `src/admin/config.yml` from
-   the `test-repo` backend to the `github` backend.
-2. **Decap OAuth** via the Netlify proxy. See `STARTER.md` step 3.
-3. **GitHub Pages**: Settings > Pages > Source: GitHub Actions. Custom domain
-   `oasiswomencenter.org` (already in `src/CNAME`).
-4. **DNS at GoDaddy** — blocked on 2FA. Apex A records to `185.199.108.153`,
-   `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a `www` CNAME to
-   `<username>.github.io.`
+1. ~~GitHub repo~~ — done. `kag-richards/oasis-website`, private.
+2. ~~Decap backend~~ — done. Points at `kag-richards/oasis-website`.
+   **Update `backend.repo` if the repo is transferred.**
+3. **Decap OAuth** via the Netlify proxy — outstanding. Login will not work
+   until this exists.
+4. **Keisha as repo collaborator** — outstanding. Without it Decap authenticates
+   her and then silently fails to save.
+5. **GitHub Pages** — outstanding, and gated on Keisha approving the content.
+   Enabling it publishes her EIN, phone, and organization name at a public URL.
+   Pages on a free account also requires the repo to be public.
+6. **DNS at GoDaddy** — blocked on 2FA. Full change set, including the Google
+   Workspace MX records that must survive, is in `../DNS-CUTOVER.md`.
 5. **Stripe**: Keisha creates the account so payouts are in her name. Paste the
    checkout link into Site Settings > Donation Link in `/admin/`. Until then the
    give page falls back to an email link automatically.

@@ -1,37 +1,79 @@
 # Decap CMS — Oasis Women Center
 #
-# Keisha logs in at /admin/, edits content through forms, hits Save. Decap
-# commits to GitHub on her behalf and the Action rebuilds the site.
+# Keisha logs in at /admin/, edits through forms, hits Save. Decap commits to
+# GitHub on her behalf and the Action rebuilds the site.
 #
-# BEFORE FIRST DEPLOY:
-#   1. Create the repo under Keisha's GitHub account (see backend.repo below).
-#   2. Comment out the `test-repo` backend and uncomment the github backend.
-#   3. Register the repo with the Netlify OAuth proxy (see STARTER.md step 3).
+# REMAINING SETUP (see /transfer-site Phase 4):
+#   1. Register this repo with the Netlify OAuth proxy so login works.
+#      app.netlify.com -> import from GitHub -> Site settings -> Access control
+#      -> OAuth -> install GitHub provider. Callback: https://api.netlify.com/auth/done
+#   2. Add Keisha as a repo collaborator, or Decap authenticates her and then
+#      silently fails to save.
+#   3. If the repo is transferred to her account, update `backend.repo` below.
+#
+# For local preview without OAuth, temporarily swap `backend` for:
+#   backend:
+#     name: test-repo
 
-# LOCAL PREVIEW ONLY — lets the admin UI load without OAuth.
-# Swap to the github block below before pushing to production.
 backend:
-  name: test-repo
-
-# Production backend:
-# backend:
-#   name: github
-#   repo: oasis-women-center/oasis-website   # confirm the exact org/repo once created
-#   branch: main
-#   base_url: https://api.netlify.com
-#   auth_endpoint: auth
+  name: github
+  repo: kag-richards/oasis-website
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 site_url: https://oasiswomencenter.org
 display_url: https://oasiswomencenter.org
 logo_url: /assets/images/logo-lockup.svg
 
-media_folder: "src/assets/images"
-public_folder: "/assets/images"
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 collections:
+  # ── HOMEPAGE ──────────────────────────────────────────────────────────────
+  # Structured fields only. The homepage is a designed layout, so the layout
+  # itself is never exposed as an editable body. Keisha edits the words and the
+  # numbers; she cannot accidentally delete a grid.
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "home"
+        label: "Homepage Content"
+        file: "src/content/_data/home.json"
+        fields:
+          - {label: "Location Badge", name: "badge", widget: "string", hint: "Small pill above the headline."}
+          - {label: "Headline — first line", name: "heading_line1", widget: "string"}
+          - {label: "Headline — second line, before the highlight", name: "heading_pre", widget: "string"}
+          - {label: "Headline — highlighted words", name: "heading_accent", widget: "string", hint: "Shown in gold italic."}
+          - {label: "Headline — second line, after the highlight", name: "heading_post", widget: "string"}
+          - {label: "Opening paragraph", name: "subtext", widget: "text"}
+          - {label: "Progress Card Title", name: "progress_label", widget: "string"}
+          - {label: "Progress Percent", name: "progress_percent", widget: "number", value_type: "int", min: 0, max: 100, hint: "How full the bar is, 0 to 100."}
+          - {label: "Progress Status", name: "progress_status", widget: "string"}
+          - {label: "Progress Note", name: "progress_note", widget: "string"}
+          - label: "Key Numbers"
+            name: "stats"
+            widget: "list"
+            hint: "The four figures about the house. Only change these to reflect what is actually true."
+            fields:
+              - {label: "Number", name: "number", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+          - label: "Milestones"
+            name: "milestones"
+            widget: "list"
+            fields:
+              - {label: "Status", name: "state", widget: "select", options: [{label: "Complete", value: "done"}, {label: "In progress", value: "now"}, {label: "Not started", value: "next"}]}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Detail", name: "detail", widget: "string"}
+          - {label: "Honesty Note", name: "disclosure", widget: "text", hint: "The paragraph stating we are pre-house. Update it the day the first resident moves in."}
+
+  # ── PROSE PAGES ───────────────────────────────────────────────────────────
+  # About, Programs, Contact. Markdown only. The layout-heavy pages (home, give,
+  # news) are .njk and are intentionally not listed here.
   - name: "pages"
     label: "Pages"
     folder: "src/content/pages"
+    extension: "md"
     create: false
     delete: false
     slug: "{{slug}}"
@@ -39,16 +81,15 @@ collections:
       - {label: "Page Title (browser tab)", name: "title", widget: "string"}
       - {label: "Layout", name: "layout", widget: "hidden"}
       - {label: "URL Path", name: "permalink", widget: "hidden"}
-      - {label: "Full Width Layout", name: "wide", widget: "hidden", required: false}
-      - {label: "Hero Heading", name: "hero_heading", widget: "string", required: false}
-      - {label: "Hero Subtext", name: "hero_subtext", widget: "text", required: false}
-      - {label: "Hero Background Photo", name: "hero_image", widget: "image", required: false, hint: "Optional. Sits behind the hero at low opacity. Wide photos work best."}
+      - {label: "Header Heading", name: "hero_heading", widget: "string", required: false}
+      - {label: "Header Subtext", name: "hero_subtext", widget: "text", required: false}
       - {label: "Page Content", name: "body", widget: "markdown"}
       - {label: "Meta Description (Google search)", name: "meta_description", widget: "text", required: false, hint: "About 155 characters. Shown in Google results and link previews."}
 
   - name: "team"
     label: "Board & Team"
     folder: "src/content/team"
+    extension: "md"
     create: true
     delete: true
     slug: "{{slug}}"
@@ -56,12 +97,13 @@ collections:
       - {label: "Full Name", name: "name", widget: "string"}
       - {label: "Title / Role", name: "role", widget: "string"}
       - {label: "Photo", name: "photo", widget: "image", required: false}
-      - {label: "Display Order", name: "order", widget: "number", required: false, hint: "Lower number appears first."}
+      - {label: "Display Order", name: "order", widget: "number", required: false}
       - {label: "Short Bio", name: "body", widget: "markdown", required: false}
 
   - name: "blog"
     label: "News & Updates"
     folder: "src/content/blog"
+    extension: "md"
     create: true
     delete: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -81,7 +123,7 @@ collections:
         file: "src/content/_data/site.json"
         fields:
           - {label: "Organization Name", name: "title", widget: "string"}
-          - {label: "Mission Line (used in footer and link previews)", name: "tagline", widget: "string"}
+          - {label: "Mission Line (footer and link previews)", name: "tagline", widget: "string"}
           - {label: "Contact Email", name: "email", widget: "string"}
           - {label: "Phone Number", name: "phone", widget: "string"}
           - {label: "Website URL", name: "url", widget: "string"}
@@ -91,5 +133,5 @@ collections:
           - {label: "Service Area", name: "service_area", widget: "string"}
           - {label: "EIN", name: "ein", widget: "string"}
           - {label: "Legal Status Line", name: "legal_status", widget: "string"}
-          - {label: "Donation Link", name: "donation_url", widget: "string", required: false, hint: "Paste the Stripe checkout link here once the Stripe account is live. Leaving it blank shows an email fallback instead."}
+          - {label: "Donation Link", name: "donation_url", widget: "string", required: false, hint: "Paste the Stripe checkout link here once Stripe is live. Blank shows an email fallback instead."}
           - {label: "Social Share Image", name: "social_image", widget: "image", required: false}
