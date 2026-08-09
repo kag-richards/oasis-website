@@ -30,6 +30,11 @@ jobs:
         run: npm ci || npm install
 
       - name: Build site
+        # PATH_PREFIX is set while the site lives at the github.io preview URL.
+        # DELETE these two lines at DNS cutover so CNAME is emitted and the site
+        # builds for the domain root. See ../DNS-CUTOVER.md step 5.
+        env:
+          PATH_PREFIX: /oasis-website/
         run: npm run build
 
       - name: Upload Pages artifact

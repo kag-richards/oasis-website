@@ -178,7 +178,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-photo {
   position: absolute; inset: 0; z-index: -3;
-  background: url('/assets/images/photos/hero-home.webp') center 40% / cover no-repeat;
+  background: url('images/photos/hero-home.webp') center 40% / cover no-repeat;
   opacity: 1; transform: scale(1.06);
   animation: heroDrift 26s ease-in-out infinite alternate;
 }

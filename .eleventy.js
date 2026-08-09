@@ -1,8 +1,19 @@
+const { HtmlBasePlugin } = require("@11ty/eleventy");
+
 module.exports = function (eleventyConfig) {
+  // Rewrites root-relative URLs to respect pathPrefix. Needed because the
+  // GitHub Pages preview serves from /oasis-website/, while the custom domain
+  // will serve from /. Set PATH_PREFIX in CI for the preview; unset = "/".
+  eleventyConfig.addPlugin(HtmlBasePlugin);
   // Passthrough: copy static assets and admin into the build output as-is
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
-  eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  // CNAME only when deploying to the custom domain. Emitting it during the
+  // preview would make GitHub redirect the github.io URL to a domain that does
+  // not point here yet, which breaks the preview.
+  if (!process.env.PATH_PREFIX || process.env.PATH_PREFIX === "/") {
+    eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  }
 
   // Watch for changes during dev
   eleventyConfig.addWatchTarget("src/assets/");
@@ -36,6 +47,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => new Date().getFullYear());
 
   return {
+    pathPrefix: process.env.PATH_PREFIX || "/",
     dir: {
       input: "src",
       includes: "_includes",
