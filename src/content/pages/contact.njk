@@ -32,6 +32,45 @@ meta_description: Contact Oasis Women Center in Denton County, Texas. Call 214-8
   </div>
 </section>
 
+<section class="sec sec-paper" id="form">
+  <div class="wrap">
+    <div class="railed">
+      <div class="rail reveal">
+        <span class="eyebrow">Send a message</span>
+        <h2 class="sec-title">Tell us what you need.</h2>
+        <p class="sec-lead" style="margin-top:20px;">Looking for housing, referring a woman to us, offering to volunteer, or asking about a gift. Whatever it is, write it here and we will answer.</p>
+      </div>
+      <div class="reveal d1">
+        <form class="ls-form" novalidate>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" data-ls-field="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" data-ls-field="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+            <input id="f-phone" data-ls-field="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-message">How can we help?</label>
+            <textarea id="f-message" data-ls-field="message" rows="5" required></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Website</label>
+            <input id="f-website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="form-notice" role="status" aria-live="polite"></p>
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="note" style="margin-top:18px;">We never share your information. If you would rather not use this form, email <a href="mailto:{{ site.email }}" style="text-decoration:underline">{{ site.email }}</a> or call {{ site.phone }}.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec sec-warm">
   <div class="wrap">
     <div class="railed">
