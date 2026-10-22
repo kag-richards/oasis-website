@@ -1,0 +1,54 @@
+---
+title: Contact
+layout: layouts/page.njk
+permalink: /contact/
+wide: true
+hero_heading: Get in touch
+hero_subtext: Whether you want to give, volunteer, refer someone, or just ask a question, we would like to hear from you.
+meta_description: Contact Oasis Women Center in Denton County, Texas. Call 214-815-6327 or email info@oasiswomencenter.org.
+---
+
+<section class="sec sec-paper">
+  <div class="wrap">
+    <div class="railed">
+      <div class="rail reveal">
+        <span class="eyebrow">Reach us</span>
+        <h2 class="sec-title">A real person answers.</h2>
+        <p class="sec-lead" style="margin-top:20px;">Keisha Ortiz, Founder and Board Chair, reads and answers messages sent to our main inbox.</p>
+      </div>
+      <div class="reveal d1">
+        <dl class="facts">
+          <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}" style="text-decoration:underline">{{ site.email }}</a></dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace('-', '') }}" style="text-decoration:underline">{{ site.phone }}</a></dd></div>
+          <div><dt>Service area</dt><dd>{{ site.service_area }}</dd></div>
+        </dl>
+        <p class="note" style="margin-top:28px;">If you need our mailing address for a donation, a legal notice, or grant paperwork, email or call us and we will provide it directly.</p>
+        <p style="margin-top:40px;">
+          <a class="btn btn-primary" href="/give/">Ways to give</a>
+          <a class="btn btn-outline-ink" href="/programs/" style="margin-left:10px;">Our programs</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-warm">
+  <div class="wrap">
+    <div class="railed">
+      <div class="rail reveal">
+        <span class="eyebrow">Organization</span>
+        <h2 class="sec-title">Our standing.</h2>
+      </div>
+      <div class="reveal d1">
+        <dl class="facts">
+          <div><dt>Legal name</dt><dd>Oasis Women Center</dd></div>
+          <div><dt>Status</dt><dd>501(c)(3) nonprofit organization</dd></div>
+          <div><dt>EIN</dt><dd>{{ site.ein }}</dd></div>
+          <div><dt>State of incorporation</dt><dd>Texas</dd></div>
+          <div><dt>Founded</dt><dd>2024</dd></div>
+        </dl>
+        <p class="note" style="margin-top:26px;">Contributions are tax deductible to the extent allowed by law.</p>
+      </div>
+    </div>
+  </div>
+</section>
