@@ -1,0 +1,111 @@
+---
+title: Our Programs
+layout: layouts/page.njk
+permalink: /programs/
+wide: true
+hero_heading: Four pillars, one outcome
+hero_subtext: Housing, transportation, education, and mental health. Solve three and a woman is still stuck.
+meta_description: Transitional housing, transportation assistance, educational support, and mental health resources for women in recovery in Denton County, Texas.
+---
+
+<section class="sec sec-paper">
+  <div class="wrap">
+    <div class="editorial reveal">
+      <p class="lede">Self sufficiency is not a single problem with a single fix. A woman can have a bed and still lose her job because she has no way to get there. She can have a car and still relapse because nothing addressed the trauma underneath.</p>
+      <p><strong>Our program is built to close all four gaps at once.</strong></p>
+    </div>
+  </div>
+</section>
+
+{% set pillars = [
+  { n: "01", title: "Transitional Housing", img: "room-morning-day.webp",
+    alt: "A bedroom in bright morning light with a neatly made bed and a lamp and Bible on the nightstand.",
+    lede: "Safe, sober housing for women who have completed a drug and/or alcohol recovery program.",
+    body: [
+      "Residents can stay 12 to 24 months while they work toward stability and independence. During that time, they will receive case management, life skills coaching, support groups, and direct assistance with employment and permanent housing placement.",
+      "The home will accommodate up to 8 residents, with 4 bedrooms, shared living areas, a kitchen, and dedicated space for case management. Residents will pay a nominal program fee of $500 per month, far below market rent, charged only to help offset operating costs. No profit is taken from these fees."
+    ] },
+  { n: "02", title: "Transportation Assistance", img: "road-day.webp",
+    alt: "A quiet tree-lined residential street in bright morning daylight.",
+    lede: "The barrier that quietly undoes everything else.",
+    body: [
+      "We will provide bus passes, ride share vouchers, gas cards, and, where possible, staff and volunteer drivers. That covers travel to work, medical and mental health appointments, court and probation meetings, childcare, education and training programs, and recovery support meetings.",
+      "No repayment is required."
+    ] },
+  { n: "03", title: "Educational Support", img: "desk-budget-day.webp",
+    alt: "A household budget written by hand in an open notebook on a sunlit table.",
+    lede: "Transforming mindsets and financial literacy is where we will start, because managing money is the skill that determines whether independence lasts.",
+    body: [
+      "Beyond that, we will provide job readiness training including resume writing, interview skills, and workplace expectations, plus tutoring, computer skills training, and referrals to local colleges and workforce programs. Core educational services will be free to participants."
+    ] },
+  { n: "04", title: "Mental Health Resources", img: "support-day.webp",
+    alt: "Two armchairs turned toward each other beside a bright window.",
+    lede: "Addressing what sits underneath.",
+    body: [
+      "Services will include dedicated peer support groups, mental health screenings, strategic community referrals, professional, Christ-centered counseling, and psychoeducational workshops on coping skills, trauma, stress management, and relapse prevention. Services are delivered by licensed professionals and trained peer support specialists.",
+      "Services are offered at no cost or on a sliding scale. No one is turned away for their inability to pay."
+    ] }
+] %}
+
+{%- for p in pillars %}
+<section class="sec {% if loop.index0 % 2 == 0 %}sec-warm{% else %}sec-paper{% endif %}" aria-labelledby="p{{ p.n }}">
+  <div class="wrap">
+    <div class="split center-v{% if loop.index0 % 2 == 0 %} flip{% endif %}">
+      {%- if loop.index0 % 2 == 0 %}
+      <div class="split-visual reveal">
+        <figure class="figure"><img src="/assets/images/photos/{{ p.img }}" alt="{{ p.alt }}" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      </div>
+      {%- endif %}
+      <div class="split-body reveal d1">
+        <span class="eyebrow">{{ p.n }} &nbsp;/&nbsp; Pillar</span>
+        <h2 class="sec-title" id="p{{ p.n }}">{{ p.title }}</h2>
+        <p class="sec-lead" style="margin-bottom:26px;">{{ p.lede }}</p>
+        {%- for para in p.body %}
+        <p>{{ para }}</p>
+        {%- endfor %}
+      </div>
+      {%- if loop.index0 % 2 != 0 %}
+      <div class="split-visual reveal d2">
+        <figure class="figure"><img src="/assets/images/photos/{{ p.img }}" alt="{{ p.alt }}" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+{%- endfor %}
+
+<section class="sec sec-clay" aria-labelledby="intake-h">
+  <div class="wrap">
+    <div class="railed">
+      <div class="rail reveal">
+        <span class="eyebrow">Intake</span>
+        <h2 class="sec-title" id="intake-h">How a woman enters the program.</h2>
+        <p class="note" style="margin-top:22px;">We are currently pre-house. The steps below describe how the program operates once our first home opens.</p>
+      </div>
+      <div class="index reveal d1">
+        <div class="index-row">
+          <span class="n" aria-hidden="true">01</span>
+          <h3>Referral or application</h3>
+          <p>Women come to us directly, or through shelters, social service agencies, hospitals, faith communities, and other community partners. Each applicant completes an intake form covering housing status, income, safety concerns, goals and support needs.</p>
+        </div>
+        <div class="index-row">
+          <span class="n" aria-hidden="true">02</span>
+          <h3>Intake assessment</h3>
+          <p>Staff conduct an interview, in person or by phone, to verify housing instability, review financial hardship, assess safety concerns, and determine whether our program is the right fit for her needs.</p>
+        </div>
+        <div class="index-row">
+          <span class="n" aria-hidden="true">03</span>
+          <h3>Prioritization</h3>
+          <p>When there are more eligible applicants than beds, priority goes to women in immediate danger or fleeing violence, women who are literally homeless, and women with the fewest alternative options.</p>
+        </div>
+        <div class="index-row">
+          <span class="n" aria-hidden="true">04</span>
+          <h3>Admission and ongoing support</h3>
+          <p>Accepted residents receive an orientation to house rules, program expectations, and available services, followed by an individualized plan and regular case management meetings.</p>
+        </div>
+      </div>
+    </div>
+    <p class="note reveal" style="margin-top:44px;">If we cannot accept an eligible applicant because of space or fit, we provide referrals to other appropriate community resources.</p>
+    <p style="margin-top:40px;" class="reveal"><a class="btn btn-primary" href="/give/">Help us open the doors</a></p>
+  </div>
+</section>

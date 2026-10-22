@@ -47,7 +47,7 @@
       "@type": "PostalAddress",
       "addressLocality": "{{ site.city }}",
       "addressRegion": "{{ site.state }}",
-      "postalCode": "{{ site.zip }}",
+      {% if site.zip %}"postalCode": "{{ site.zip }}",{% endif %}
       "addressCountry": "US"
     }
   }

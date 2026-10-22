@@ -2,9 +2,8 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <img class="footer-logo" src="/assets/images/logo-lockup-reversed.svg" alt="{{ site.title }}" width="320" height="100">
+        <img class="footer-logo" src="/assets/images/logo-lockup.svg" alt="{{ site.title }}" width="320" height="100">
         <p class="footer-mission">{{ site.tagline }}</p>
-        <p class="footer-safety">Our housing location is kept confidential to protect the safety of the women we serve.</p>
       </div>
 
       <div>
@@ -12,6 +11,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about/">About Us</a></li>
+          <li><a href="/founder/">Our Founder</a></li>
           <li><a href="/programs/">Our Programs</a></li>
           <li><a href="/give/">Ways to Give</a></li>
           <li><a href="/blog/">News</a></li>
@@ -24,7 +24,7 @@
         <ul>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           <li><a href="tel:{{ site.phone | replace('-', '') }}">{{ site.phone }}</a></li>
-          <li>{{ site.city }}, {{ site.state }} {{ site.zip }}</li>
+          <li>{{ site.city }}, {{ site.state }}{% if site.zip %} {{ site.zip }}{% endif %}</li>
         </ul>
       </div>
 
