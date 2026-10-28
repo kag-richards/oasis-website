@@ -3,17 +3,24 @@ title: News & Updates
 layout: layouts/page.njk
 permalink: /blog/
 wide: true
+eyebrow: News
 hero_heading: News and updates
+hero_accent: updates
 hero_subtext: Progress toward the house, program milestones, and ways to get involved.
+hero_image: /assets/images/photos/road-day.webp
+hero_w: 1536
+hero_h: 1024
+hero_alt: A quiet tree-lined residential street in bright morning daylight.
+hero_pos: 50% 60%
 meta_description: News and updates from Oasis Women Center in Denton County, Texas.
 ---
 
-<section class="sec sec-paper">
-  <div class="wrap">
+<section class="bd bd-paper">
+  <div class="bd-in">
     {% if collections.posts | length %}
-    <div class="post-list">
+    <div class="posts">
       {%- for post in collections.posts %}
-      <article class="post-card reveal">
+      <article class="post" data-rv>
         <p class="post-date">{{ post.date | dateReadable }}</p>
         <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
         {% if post.data.excerpt %}<p>{{ post.data.excerpt }}</p>{% endif %}
@@ -21,14 +28,12 @@ meta_description: News and updates from Oasis Women Center in Denton County, Tex
       {%- endfor %}
     </div>
     {% else %}
-    <div class="sec-head center reveal" style="margin-bottom:34px;">
-      <span class="eyebrow">Coming soon</span>
-      <h2 class="sec-title">Nothing posted <em>just yet</em>.</h2>
-      <p class="sec-lead">Updates will land here as we move toward opening the first home. Until then, the fastest way to follow along is to reach out directly.</p>
+    <div class="sec-center" data-rv>
+      <p class="eyebrow">Coming soon</p>
+      <h2 class="title">Nothing posted <em>just yet</em>.</h2>
+      <p class="lede">Updates will land here as we move toward opening the first home. Until then, the fastest way to follow along is to reach out directly.</p>
+      <div class="actions"><a class="btn btn-outline" href="/contact/">Contact us</a></div>
     </div>
-    <p style="text-align:center;" class="reveal d1">
-      <a class="btn btn-outline-ink" href="/contact/">Contact us</a>
-    </p>
     {% endif %}
   </div>
 </section>

@@ -3,91 +3,97 @@ title: Contact
 layout: layouts/page.njk
 permalink: /contact/
 wide: true
+form_page: true
+eyebrow: Contact
 hero_heading: Get in touch
+hero_accent: touch
 hero_subtext: Whether you want to give, volunteer, refer someone, or just ask a question, we would like to hear from you.
+hero_note: a real person answers
+hero_image: /assets/images/photos/porch-evening.webp
+hero_w: 1024
+hero_h: 1024
+hero_alt: A front door lit by a porch light at dusk, with wooden steps and a potted plant beside it.
+hero_pos: 50% 38%
 meta_description: Contact Oasis Women Center in Denton County, Texas. Call 214-815-6327 or email info@oasiswomencenter.org.
 ---
 
-<section class="sec sec-paper">
-  <div class="wrap">
-    <div class="railed">
-      <div class="rail reveal">
-        <span class="eyebrow">Reach us</span>
-        <h2 class="sec-title">A real person answers.</h2>
-        <p class="sec-lead" style="margin-top:20px;">Keisha Ortiz, Founder and Board Chair, reads and answers messages sent to our main inbox.</p>
-      </div>
-      <div class="reveal d1">
-        <dl class="facts">
-          <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}" style="text-decoration:underline">{{ site.email }}</a></dd></div>
-          <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace('-', '') }}" style="text-decoration:underline">{{ site.phone }}</a></dd></div>
-          <div><dt>Service area</dt><dd>{{ site.service_area }}</dd></div>
-        </dl>
-        <p class="note" style="margin-top:28px;">If you need our mailing address for a donation, a legal notice, or grant paperwork, email or call us and we will provide it directly.</p>
-        <p style="margin-top:40px;">
-          <a class="btn btn-primary" href="/give/">Ways to give</a>
-          <a class="btn btn-outline-ink" href="/programs/" style="margin-left:10px;">Our programs</a>
-        </p>
+<section class="bd bd-paper" aria-labelledby="reach-h">
+  <div class="bd-in rl">
+    <div class="rl-head" data-rv>
+      <p class="eyebrow">Reach us</p>
+      <h2 class="title" id="reach-h">A real person <em>answers</em>.</h2>
+      <p class="lede">Keisha Ortiz, Founder and Board Chair, reads and answers messages sent to our main inbox.</p>
+    </div>
+    <div data-rv style="--d:.1s">
+      <dl class="dl">
+        <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace('-', '') }}">{{ site.phone }}</a></dd></div>
+        <div><dt>Service area</dt><dd>{{ site.service_area }}</dd></div>
+      </dl>
+      <p class="note" style="margin-top:28px;">If you need our mailing address for a donation, a legal notice, or grant paperwork, email or call us and we will provide it directly.</p>
+      <div class="actions">
+        <a class="btn btn-ink" href="/give/">Ways to give</a>
+        <a class="btn btn-outline" href="/programs/">Our programs</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec sec-paper" id="form">
-  <div class="wrap">
-    <div class="railed">
-      <div class="rail reveal">
-        <span class="eyebrow">Send a message</span>
-        <h2 class="sec-title">Tell us what you need.</h2>
-        <p class="sec-lead" style="margin-top:20px;">Looking for housing, referring a woman to us, offering to volunteer, or asking about a gift. Whatever it is, write it here and we will answer.</p>
-      </div>
-      <div class="reveal d1">
-        <form class="ls-form" novalidate>
-          <div class="field">
-            <label for="f-name">Your name</label>
-            <input id="f-name" data-ls-field="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" data-ls-field="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="f-phone">Phone <span class="opt">(optional)</span></label>
-            <input id="f-phone" data-ls-field="phone" type="tel" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="f-message">How can we help?</label>
-            <textarea id="f-message" data-ls-field="message" rows="5" required></textarea>
-          </div>
-          <div class="hp" aria-hidden="true">
-            <label for="f-website">Website</label>
-            <input id="f-website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <p class="form-notice" role="status" aria-live="polite"></p>
-          <button class="btn btn-primary" type="submit">Send message</button>
-          <p class="note" style="margin-top:18px;">We never share your information. If you would rather not use this form, email <a href="mailto:{{ site.email }}" style="text-decoration:underline">{{ site.email }}</a> or call {{ site.phone }}.</p>
-        </form>
-      </div>
+{# The mailbox drawing carries the paper color in the file, so this band must stay on --paper. #}
+<section class="bd bd-paper" id="form" aria-labelledby="form-h">
+  <div class="bd-in rl">
+    <div class="rl-head" data-rv>
+      <p class="eyebrow">Send a message</p>
+      <h2 class="title" id="form-h">Tell us <em>what you need</em>.</h2>
+      <p class="lede">Looking for housing, referring a woman to us, offering to volunteer, or asking about a gift. Whatever it is, write it here and we will answer.</p>
+      <img class="mailbox" src="/assets/images/plan/line-address-900.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
+      <p class="mailbox-cap hand" aria-hidden="true">an address</p>
+    </div>
+    <div data-rv style="--d:.1s">
+      <form class="ls-form" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" data-ls-field="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" data-ls-field="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+          <input id="f-phone" data-ls-field="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="f-message">How can we help?</label>
+          <textarea id="f-message" data-ls-field="message" rows="5" required></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Website</label>
+          <input id="f-website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="form-notice" role="status" aria-live="polite"></p>
+        <button class="btn btn-ink" type="submit">Send message</button>
+        <p class="note" style="margin-top:18px;">We never share your information. If you would rather not use this form, email <a href="mailto:{{ site.email }}">{{ site.email }}</a> or call {{ site.phone }}.</p>
+      </form>
     </div>
   </div>
 </section>
 
-<section class="sec sec-warm">
-  <div class="wrap">
-    <div class="railed">
-      <div class="rail reveal">
-        <span class="eyebrow">Organization</span>
-        <h2 class="sec-title">Our standing.</h2>
-      </div>
-      <div class="reveal d1">
-        <dl class="facts">
-          <div><dt>Legal name</dt><dd>Oasis Women Center</dd></div>
-          <div><dt>Status</dt><dd>501(c)(3) nonprofit organization</dd></div>
-          <div><dt>EIN</dt><dd>{{ site.ein }}</dd></div>
-          <div><dt>State of incorporation</dt><dd>Texas</dd></div>
-          <div><dt>Founded</dt><dd>2024</dd></div>
-        </dl>
-        <p class="note" style="margin-top:26px;">Contributions are tax deductible to the extent allowed by law.</p>
-      </div>
+<section class="bd bd-sand" aria-labelledby="standing-h">
+  <div class="bd-in rl">
+    <div class="rl-head" data-rv>
+      <p class="eyebrow">Organization</p>
+      <h2 class="title" id="standing-h">Our standing.</h2>
+    </div>
+    <div data-rv style="--d:.1s">
+      <dl class="dl">
+        <div><dt>Legal name</dt><dd>Oasis Women Center</dd></div>
+        <div><dt>Status</dt><dd>501(c)(3) nonprofit organization</dd></div>
+        <div><dt>EIN</dt><dd>{{ site.ein }}</dd></div>
+        <div><dt>State of incorporation</dt><dd>Texas</dd></div>
+        <div><dt>Founded</dt><dd>2024</dd></div>
+      </dl>
+      <p class="note" style="margin-top:26px;">Contributions are tax deductible to the extent allowed by law.</p>
     </div>
   </div>
 </section>

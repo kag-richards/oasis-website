@@ -1,18 +1,42 @@
 ---
-layout: layouts/base.njk
+layout: layouts/plan.njk
 ---
-
-<header class="page-head">
-  <div class="wrap">
-    <h1>{{ hero_heading or title }}</h1>
-    {% if hero_subtext %}<p>{{ hero_subtext }}</p>{% endif %}
+{#
+  Interior pages in The Plan's design. The home page uses plan.njk directly.
+  Front matter this layout reads (all optional except title):
+    hero_heading   the page's headline; hero_accent is the part set in gold italics
+    hero_subtext   the sentence under it
+    eyebrow        small label above the headline
+    hero_note      a few handwritten words under the sentence (taken from the page's own copy)
+    hero_image     photo on the home side of the gold line; hero_alt describes it; hero_pos is its crop
+    wide           true when the page brings its own sections; otherwise content is set as a reading column
+#}
+{% set heading = hero_heading or title %}
+<header class="ph">
+  <div class="ph-text">
+    {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+    <h1 class="display">{% if hero_accent %}{{ heading | escape | replace(hero_accent, '<em>' + hero_accent + '</em>') | safe }}{% else %}{{ heading }}{% endif %}</h1>
+    {% if hero_subtext %}<p class="lede">{{ hero_subtext }}</p>{% endif %}
+    {% if hero_note %}<p class="ph-note hand" aria-hidden="true">{{ hero_note }}</p>{% endif %}
+    {% if hero_donate and site.donation_url %}<p class="ph-ctas"><a class="btn btn-gold" href="{{ site.donation_url }}?utm_source=site&amp;utm_medium={{ hero_donate }}&amp;utm_campaign=the-plan" target="_blank" rel="noopener">Donate now</a></p>{% endif %}
+  </div>
+  <div class="ph-stage">
+    <figure class="ph-plate"{% if hero_pos %} style="--pos:{{ hero_pos }}"{% endif %}>
+      <img src="{{ hero_image or '/assets/images/plan/threshold-1376.webp' }}" alt="{{ hero_alt or '' }}" width="{{ hero_w or 1536 }}" height="{{ hero_h or 1024 }}" fetchpriority="high" decoding="async">
+      {% if hero_tag %}<figcaption class="ph-tag">{{ hero_tag }}</figcaption>{% endif %}
+    </figure>
+    <span class="ph-seam" aria-hidden="true"><span class="ph-knob"><b>We are here</b> {{ plan.stage_label }}</span></span>
   </div>
 </header>
 
 {% if wide %}
   {{ content | safe }}
 {% else %}
-<article class="prose">
-  {{ content | safe }}
-</article>
+<section class="bd bd-paper">
+  <div class="bd-in">
+    <article class="ed">
+      {{ content | safe }}
+    </article>
+  </div>
+</section>
 {% endif %}

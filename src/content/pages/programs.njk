@@ -3,16 +3,25 @@ title: Our Programs
 layout: layouts/page.njk
 permalink: /programs/
 wide: true
+eyebrow: Programs
 hero_heading: Four pillars, one outcome
+hero_accent: one outcome
 hero_subtext: Housing, transportation, education, and mental health. Solve three and a woman is still stuck.
+hero_note: all four gaps, closed at once
+hero_image: /assets/images/photos/kitchen-table.webp
+hero_w: 1024
+hero_h: 1024
+hero_alt: Two mugs and a small vase on a wooden kitchen table by a window.
+hero_pos: 50% 60%
 meta_description: Transitional housing, transportation assistance, educational support, and mental health resources for women in recovery in Denton County, Texas.
 ---
 
-<section class="sec sec-paper">
-  <div class="wrap">
-    <div class="editorial reveal">
-      <p class="lede">Self sufficiency is not a single problem with a single fix. A woman can have a bed and still lose her job because she has no way to get there. She can have a car and still relapse because nothing addressed the trauma underneath.</p>
-      <p><strong>Our program is built to close all four gaps at once.</strong></p>
+<section class="bd bd-paper">
+  <div class="bd-in">
+    <p class="stmt" data-rv>Self sufficiency is not a single problem with a single fix.</p>
+    <div class="ed" data-rv style="--d:.1s">
+      <p class="lede-xl">A woman can have a bed and still lose her job because she has no way to get there. She can have a car and still relapse because nothing addressed the trauma underneath.</p>
+      <p class="lede-xl"><em>Our program is built to close all four gaps at once.</em></p>
     </div>
   </div>
 </section>
@@ -48,64 +57,61 @@ meta_description: Transitional housing, transportation assistance, educational s
 ] %}
 
 {%- for p in pillars %}
-<section class="sec {% if loop.index0 % 2 == 0 %}sec-warm{% else %}sec-paper{% endif %}" aria-labelledby="p{{ p.n }}">
-  <div class="wrap">
-    <div class="split center-v{% if loop.index0 % 2 == 0 %} flip{% endif %}">
-      {%- if loop.index0 % 2 == 0 %}
-      <div class="split-visual reveal">
-        <figure class="figure"><img src="/assets/images/photos/{{ p.img }}" alt="{{ p.alt }}" width="1536" height="1024" loading="lazy" decoding="async"></figure>
-      </div>
-      {%- endif %}
-      <div class="split-body reveal d1">
-        <span class="eyebrow">{{ p.n }} &nbsp;/&nbsp; Pillar</span>
-        <h2 class="sec-title" id="p{{ p.n }}">{{ p.title }}</h2>
-        <p class="sec-lead" style="margin-bottom:26px;">{{ p.lede }}</p>
-        {%- for para in p.body %}
-        <p>{{ para }}</p>
-        {%- endfor %}
-      </div>
-      {%- if loop.index0 % 2 != 0 %}
-      <div class="split-visual reveal d2">
-        <figure class="figure"><img src="/assets/images/photos/{{ p.img }}" alt="{{ p.alt }}" width="1536" height="1024" loading="lazy" decoding="async"></figure>
-      </div>
-      {%- endif %}
-    </div>
+{%- set photoLeft = (loop.index0 % 2 == 0) %}
+<section class="split" aria-labelledby="p{{ p.n }}">
+  {%- if photoLeft %}
+  <div class="col col-photo" data-open="l">
+    <img src="/assets/images/photos/{{ p.img }}" alt="{{ p.alt }}" width="1536" height="1024" loading="lazy" decoding="async">
   </div>
+  {%- endif %}
+  <div class="col {% if photoLeft %}col-paper{% else %}col-sand{% endif %} ed" data-rv>
+    <p class="eyebrow">{{ p.n }} &nbsp;/&nbsp; Pillar</p>
+    <h2 class="title" id="p{{ p.n }}">{{ p.title }}</h2>
+    <p class="col-lede">{{ p.lede }}</p>
+    {%- for para in p.body %}
+    <p>{{ para }}</p>
+    {%- endfor %}
+  </div>
+  {%- if not photoLeft %}
+  <div class="col col-photo" data-open>
+    <img src="/assets/images/photos/{{ p.img }}" alt="{{ p.alt }}" width="1536" height="1024" loading="lazy" decoding="async">
+  </div>
+  {%- endif %}
 </section>
 {%- endfor %}
 
-<section class="sec sec-clay" aria-labelledby="intake-h">
-  <div class="wrap">
-    <div class="railed">
-      <div class="rail reveal">
-        <span class="eyebrow">Intake</span>
-        <h2 class="sec-title" id="intake-h">How a woman enters the program.</h2>
-        <p class="note" style="margin-top:22px;">We are currently pre-house. The steps below describe how the program operates once our first home opens.</p>
-      </div>
-      <div class="index reveal d1">
-        <div class="index-row">
-          <span class="n" aria-hidden="true">01</span>
-          <h3>Referral or application</h3>
-          <p>Women come to us directly, or through shelters, social service agencies, hospitals, faith communities, and other community partners. Each applicant completes an intake form covering housing status, income, safety concerns, goals and support needs.</p>
-        </div>
-        <div class="index-row">
-          <span class="n" aria-hidden="true">02</span>
-          <h3>Intake assessment</h3>
-          <p>Staff conduct an interview, in person or by phone, to verify housing instability, review financial hardship, assess safety concerns, and determine whether our program is the right fit for her needs.</p>
-        </div>
-        <div class="index-row">
-          <span class="n" aria-hidden="true">03</span>
-          <h3>Prioritization</h3>
-          <p>When there are more eligible applicants than beds, priority goes to women in immediate danger or fleeing violence, women who are literally homeless, and women with the fewest alternative options.</p>
-        </div>
-        <div class="index-row">
-          <span class="n" aria-hidden="true">04</span>
-          <h3>Admission and ongoing support</h3>
-          <p>Accepted residents receive an orientation to house rules, program expectations, and available services, followed by an individualized plan and regular case management meetings.</p>
-        </div>
-      </div>
+<section class="bd bd-rose" aria-labelledby="intake-h">
+  <div class="bd-in rl">
+    <div class="rl-head" data-rv>
+      <p class="eyebrow">Intake</p>
+      <h2 class="title" id="intake-h">How a woman enters the program.</h2>
+      <p class="note" style="margin-top:22px;">We are currently pre-house. The steps below describe how the program operates once our first home opens.</p>
     </div>
-    <p class="note reveal" style="margin-top:44px;">If we cannot accept an eligible applicant because of space or fit, we provide referrals to other appropriate community resources.</p>
-    <p style="margin-top:40px;" class="reveal"><a class="btn btn-primary" href="/give/">Help us open the doors</a></p>
+    <div data-rv style="--d:.1s">
+      <ol class="steps">
+        <li>
+          <span class="n" aria-hidden="true">01</span>
+          <div><h3>Referral or application</h3>
+          <p>Women come to us directly, or through shelters, social service agencies, hospitals, faith communities, and other community partners. Each applicant completes an intake form covering housing status, income, safety concerns, goals and support needs.</p></div>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">02</span>
+          <div><h3>Intake assessment</h3>
+          <p>Staff conduct an interview, in person or by phone, to verify housing instability, review financial hardship, assess safety concerns, and determine whether our program is the right fit for her needs.</p></div>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">03</span>
+          <div><h3>Prioritization</h3>
+          <p>When there are more eligible applicants than beds, priority goes to women in immediate danger or fleeing violence, women who are literally homeless, and women with the fewest alternative options.</p></div>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">04</span>
+          <div><h3>Admission and ongoing support</h3>
+          <p>Accepted residents receive an orientation to house rules, program expectations, and available services, followed by an individualized plan and regular case management meetings.</p></div>
+        </li>
+      </ol>
+      <p class="note" style="margin-top:44px;">If we cannot accept an eligible applicant because of space or fit, we provide referrals to other appropriate community resources.</p>
+      <div class="actions actions-tight"><a class="btn btn-gold" href="/give/">Help us open the doors</a></div>
+    </div>
   </div>
 </section>

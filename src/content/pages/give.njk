@@ -3,116 +3,138 @@ title: Ways to Give
 layout: layouts/page.njk
 permalink: /give/
 wide: true
+eyebrow: Give
 hero_heading: Ways to give
+hero_accent: give
 hero_subtext: Every gift made today goes toward the lease or purchase of our first transitional home in Denton County.
+hero_note: every gift draws a line
+hero_donate: give-hero
+hero_image: /assets/images/photos/giving-day.webp
+hero_w: 1536
+hero_h: 1024
+hero_alt: House keys, a small notebook and a folded blanket on a sunlit table.
+hero_pos: 40% 50%
 meta_description: Support Oasis Women Center. Give financially, donate a vehicle or gift cards, volunteer your skills, or refer a woman who needs housing.
 ---
 
-<section class="sec sec-dark" aria-labelledby="money-h">
-  <div class="wrap">
-    <div class="give-hero-card reveal">
-      <span class="eyebrow">Give financially</span>
-      <h2 id="money-h">The house is the whole ask.</h2>
-      <p>Until that door opens, no woman moves in. That is the entire campaign, stated plainly.</p>
-      {% if site.donation_url %}
-      <a class="btn btn-primary" href="{{ site.donation_url }}" target="_blank" rel="noopener">
+<section class="split" aria-labelledby="money-h">
+  <div class="col col-ink" data-rv>
+    <p class="eyebrow">Give financially</p>
+    <h2 class="stmt" id="money-h">The house is the <em>whole ask</em>.</h2>
+    <p class="lede-xl">Until that door opens, no woman moves in. That is the entire campaign, stated plainly.</p>
+    {% if site.donation_url %}
+    <div class="actions actions-tight">
+      <a class="btn btn-gold" href="{{ site.donation_url }}?utm_source=site&amp;utm_medium=give-ask&amp;utm_campaign=the-plan" target="_blank" rel="noopener">
         Donate now
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      {% else %}
-      <a class="btn btn-primary" href="mailto:{{ site.email }}?subject=I%20would%20like%20to%20donate">
+    </div>
+    {% else %}
+    <div class="actions actions-tight">
+      <a class="btn btn-gold" href="mailto:{{ site.email }}?subject=I%20would%20like%20to%20donate">
         Email us to give
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <p class="fine">Online giving is being set up now. Email us in the meantime and we will send you everything you need.</p>
-      {% endif %}
-      <p class="fine">A registered 501(c)(3) nonprofit, EIN {{ site.ein }}. Contributions are tax deductible to the extent allowed by law.</p>
     </div>
+    <p class="note" style="margin-top:20px;">Online giving is being set up now. Email us in the meantime and we will send you everything you need.</p>
+    {% endif %}
+    <p class="note" style="margin-top:24px;">A registered 501(c)(3) nonprofit, EIN {{ site.ein }}. Contributions are tax deductible to the extent allowed by law.</p>
+  </div>
+  <div class="col col-photo" data-open>
+    <img src="/assets/images/photos/house-exterior-wide.webp" alt="A single-story brick home with a green lawn and a driveway on a sunny day." width="1536" height="1024" loading="lazy" decoding="async" style="--pos:48% 50%">
   </div>
 </section>
 
-<section class="sec sec-paper" aria-labelledby="inkind-h">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Give without writing a check</span>
-      <h2 class="sec-title" id="inkind-h">Not everything we need <em>is money</em>.</h2>
-      <p class="sec-lead">Several of the gaps in our program are filled better by things and time than by dollars.</p>
+{# These drawings carry the page's paper color in the file, so this band must stay on --paper. #}
+<section class="bd bd-paper" aria-labelledby="lines-h">
+  <div class="bd-in">
+    <div class="sec-center" data-rv>
+      <p class="eyebrow">Fund a line</p>
+      <h2 class="title" id="lines-h">Every gift draws one of these in.</h2>
+      <p class="lede">Every line of the house has a price.</p>
+    </div>
+    <ul class="strip" data-rv style="--d:.1s">
+      {%- for ln in plan.lines %}
+      <li>
+        <a href="/#fund">
+          <img src="/assets/images/plan/{{ ln.drawing }}" alt="" width="900" height="900" loading="lazy" decoding="async">
+          <span class="hand">{{ ln.words }}</span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+    <div class="actions"><a class="btn btn-ink" href="/#fund">See every line</a></div>
+  </div>
+</section>
+
+<section class="bd bd-sand" aria-labelledby="inkind-h">
+  <div class="bd-in">
+    <div class="sec-center" data-rv>
+      <p class="eyebrow">Give without writing a check</p>
+      <h2 class="title" id="inkind-h">Not everything we need <em>is money</em>.</h2>
+      <p class="lede">Several of the gaps in our program are filled better by things and time than by dollars.</p>
     </div>
 
-    <div class="index">
-
-      <div class="index-row reveal">
+    <ol class="idx">
+      <li data-rv>
         <span class="n" aria-hidden="true">01</span>
         <h3>Donate a vehicle</h3>
         <p>A reliable used car or 15 passenger van becomes transportation for women getting to work, court, treatment, and childcare. One vehicle serves many residents.</p>
-      </div>
-
-      <div class="index-row reveal">
+      </li>
+      <li data-rv>
         <span class="n" aria-hidden="true">02</span>
         <h3>Gift cards for rides and gas</h3>
         <p>Uber and Lyft gift cards, gas cards, and prepaid transit passes go straight to a resident who needs to get where she needs to be.</p>
-      </div>
-
-      <div class="index-row reveal">
+      </li>
+      <li data-rv>
         <span class="n" aria-hidden="true">03</span>
         <h3>Furnish a room</h3>
         <p>A bed, a dresser, linens, a lamp. When the house opens, all four bedrooms have to be ready on day one, not month three.</p>
-      </div>
-
-      <div class="index-row reveal">
+      </li>
+      <li data-rv>
         <span class="n" aria-hidden="true">04</span>
         <h3>Teach financial literacy</h3>
         <p>If you work in finance, accounting, banking, or coaching, we want you leading budgeting workshops. This is the volunteer role we are actively filling.</p>
-      </div>
-
-      <div class="index-row reveal">
+      </li>
+      <li data-rv>
         <span class="n" aria-hidden="true">05</span>
         <h3>Donate professional services</h3>
         <p>Legal, accounting, counseling, trades, repairs. In-kind services are tracked and documented, and we provide a letter at year end.</p>
-      </div>
-
-      <div class="index-row reveal">
+      </li>
+      <li data-rv>
         <span class="n" aria-hidden="true">06</span>
         <h3>Become a monthly donor</h3>
         <p>Recurring gifts of any size are what will allow us to sign a lease or purchase with confidence. Predictable income is worth more to us than a one-time total.</p>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section class="sec sec-ink2" aria-labelledby="refer-h">
-  <div class="wrap">
-    <div class="split">
-      <div class="split-body reveal">
-        <span class="eyebrow">Refer a woman</span>
-        <h2 class="sec-title" id="refer-h">Know someone <em>who needs this</em>?</h2>
-        <p>If you work at a shelter, a treatment program, a hospital, a church, or an agency, and you are working with a woman who has completed recovery and has nowhere stable to go, tell us about her.</p>
-        <p>We are building the referral pipeline now, so that no bed sits empty on the day the house opens.</p>
-        <p style="margin-top:32px;">
-          <a class="btn btn-primary" href="mailto:{{ site.email }}?subject=Referral">
-            Send a referral
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </p>
-      </div>
-      <div class="split-visual reveal d2">
-        <figure class="figure">
-          <img src="/assets/images/photos/road-day.webp" alt="A quiet tree-lined residential street in bright morning daylight." width="1536" height="1024" loading="lazy" decoding="async">
-        </figure>
-      </div>
+<section class="split" aria-labelledby="refer-h">
+  <div class="col col-paper ed" data-rv>
+    <p class="eyebrow">Refer a woman</p>
+    <h2 class="title" id="refer-h">Know someone <em>who needs this</em>?</h2>
+    <p>If you work at a shelter, a treatment program, a hospital, a church, or an agency, and you are working with a woman who has completed recovery and has nowhere stable to go, tell us about her.</p>
+    <p>We are building the referral pipeline now, so that no bed sits empty on the day the house opens.</p>
+    <div class="actions">
+      <a class="btn btn-ink" href="mailto:{{ site.email }}?subject=Referral">
+        Send a referral
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
+  </div>
+  <div class="col col-photo" data-open>
+    <img src="/assets/images/photos/road-day.webp" alt="A quiet tree-lined residential street in bright morning daylight." width="1536" height="1024" loading="lazy" decoding="async">
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="wrap">
-    <div class="inner reveal">
-      <h2>Questions before <em>you give</em>?</h2>
-      <p>Call {{ site.phone }} or email {{ site.email }}. A real person answers.</p>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="tel:{{ site.phone | replace('-', '') }}">Call {{ site.phone }}</a>
-        <a class="btn btn-glass" href="mailto:{{ site.email }}">Email us</a>
-      </div>
+<section class="bd bd-pine cl" aria-labelledby="questions-h">
+  <div class="bd-in" data-rv>
+    <h2 class="stmt" id="questions-h">Questions before <em>you give</em>?</h2>
+    <p class="lede-xl">Call {{ site.phone }} or email {{ site.email }}. A real person answers.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="tel:{{ site.phone | replace('-', '') }}">Call {{ site.phone }}</a>
+      <a class="btn btn-glass" href="mailto:{{ site.email }}">Email us</a>
     </div>
   </div>
 </section>
