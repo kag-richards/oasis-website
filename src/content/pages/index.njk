@@ -1,208 +1,250 @@
 ---
 title: Home
-layout: layouts/home.njk
+layout: layouts/plan.njk
 permalink: /
-meta_description: Oasis Women Center provides transitional housing, transportation, education, and mental health support for women in recovery in Denton County, Texas.
+meta_description: Oasis Women Center is opening a Christ-centered transitional home for women in recovery in Denton County, Texas. The house is planned line by line, and every gift draws it in.
 ---
+{# THE PLAN, concept F (Website/concepts/F-THE-PLAN-DIRECTION.md).
+   One house, two ways at once: the drawing (where Oasis is today) and the home
+   (what gifts make real). The gold line between them is the bridge. Copy below is
+   Keisha's own wherever it exists. Prices are blank until real quotes arrive:
+   never invent one. The discipleship program is never named (Keisha, 10/25 call). #}
 
-<section class="sec sec-paper" aria-labelledby="gap-h">
-  <div class="wrap">
-    <div class="statement reveal">
-      <span class="eyebrow">The gap we exist to close</span>
-      <h2 class="sec-title" id="gap-h">Finishing treatment is the beginning, <em>not the end</em>.</h2>
-      <p>A woman completes 30, 60, or 90 days of treatment. She has done the hardest thing she will ever do. Then the program ends, and she is discharged to whatever housing she can find that week.</p>
-      <p>Often that means a shelter, a couch, a car, or the same house she was using in. The structure that held her together for three months disappears in a single afternoon.</p>
-      <blockquote class="pullquote">Relapse after treatment is not usually a failure of willpower. It is a failure of housing.</blockquote>
-      <p>A woman cannot hold a job without an address. She cannot keep appointments without a ride. She cannot rebuild her finances while she is working out where to sleep tonight.</p>
-      <p><strong>Oasis Women Center exists for the twelve to twenty-four months after treatment ends</strong>, when stability is fragile and the right support changes the entire outcome.</p>
+{% set give = site.donation_url %}
+
+<!-- ============ 0 · HERO: the split ============ -->
+<section class="hero" data-hero aria-labelledby="hero-h">
+  <div class="hero-stage">
+    <picture class="hero-img hero-drawing">
+      <img src="/assets/images/plan/house-drawing-2000.webp" srcset="/assets/images/plan/house-drawing-1000.webp 1000w, /assets/images/plan/house-drawing-2000.webp 2000w" sizes="100vw" alt="A pencil and watercolor drawing of a tan brick house with two rocking chairs on the front porch." width="2000" height="1116" fetchpriority="high" decoding="async">
+    </picture>
+    <picture class="hero-img hero-home" data-hero-home>
+      <img src="/assets/images/plan/house-home-2000.webp" srcset="/assets/images/plan/house-home-1000.webp 1000w, /assets/images/plan/house-home-2000.webp 2000w" sizes="100vw" alt="The same house as a real home: two white rocking chairs and a throw on the porch, a lamp lit inside, the porch light on in the morning." width="2000" height="1116" decoding="async">
+    </picture>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="line" data-line aria-hidden="true">
+      <span class="line-knob"><b>We are here</b> {{ plan.stage_label }}</span>
+    </div>
+
+    <div class="hero-copy hero-copy-l">
+      <p class="eyebrow">The plan</p>
+      <h1 id="hero-h" class="display">{{ plan.hero_left }}</h1>
+      <p class="hand hero-note" aria-hidden="true">two chairs, so no one sits alone</p>
+    </div>
+    <div class="hero-copy hero-copy-r">
+      <p class="eyebrow eyebrow-light">The home</p>
+      <p class="display display-light" role="presentation">{{ plan.hero_right_pre }} <em>{{ plan.hero_right_accent }}</em> {{ plan.hero_right_post }}</p>
+    </div>
+  </div>
+
+  <div class="hero-bar">
+    <p class="hero-sub">{{ plan.hero_sub }}</p>
+    <ul class="facts" aria-label="The house at a glance">
+      {%- for st in home.stats %}{% if loop.index <= 3 %}
+      <li><strong>{{ st.number }}</strong><span>{{ st.fact or st.label }}</span></li>
+      {%- endif %}{% endfor %}
+    </ul>
+    <div class="hero-ctas">
+      <a class="btn btn-ink" href="#fund">See the plan</a>
+      <a class="btn btn-gold" href="{{ give }}?utm_source=site&amp;utm_medium=hero&amp;utm_campaign=the-plan" target="_blank" rel="noopener">Give now</a>
     </div>
   </div>
 </section>
 
-<section class="sec sec-ink2" aria-labelledby="house-h">
-  <div class="wrap">
-    <div class="campaign">
-      <div class="campaign-visual reveal">
-        <figure class="figure">
-          <img src="/assets/images/photos/house-exterior-wide.webp" alt="A four bedroom single story family home in daylight, the kind of house Oasis is working toward." width="1536" height="1024" loading="lazy" decoding="async">
-        </figure>
-        <div class="progress-card">
-          <h4>{{ home.progress_label }}</h4>
-          <div class="bar"><div class="bar-fill" data-pct="{{ home.progress_percent }}" role="progressbar" aria-valuenow="{{ home.progress_percent }}" aria-valuemin="0" aria-valuemax="100" aria-label="Progress toward opening the first home"></div></div>
-          <div class="progress-meta">
-            <strong>{{ home.progress_status }}</strong>
-            <span>{{ home.progress_note }}</span>
-          </div>
-        </div>
-      </div>
+<!-- ============ 1 · THE FRIDAY (rest) ============ -->
+<section class="split friday" aria-labelledby="friday-h">
+  <div class="col col-paper">
+    <p class="eyebrow">The gap</p>
+    <h2 id="friday-h" class="title">She finishes treatment on a Friday.</h2>
+    <p>A woman completes 30, 60, or 90 days of treatment. She has done the hardest thing she will ever do. Then the program ends, and she is discharged to whatever housing she can find that week.</p>
+    <p>The structure that held her together for three months disappears in a single afternoon.</p>
+  </div>
+  <div class="col col-ink">
+    <p class="eyebrow eyebrow-light">That night</p>
+    <h3 class="title title-light">Where does she sleep?</h3>
+    <ul class="nights">
+      <li><s>a shelter</s></li>
+      <li><s>a couch</s></li>
+      <li><s>a car</s></li>
+      <li><s>the same house she was using in</s></li>
+      <li class="nights-yes">a home that is ready for her</li>
+    </ul>
+    <p class="quiet">Oasis exists for the twelve to twenty-four months after treatment ends, when stability is fragile and the right support changes the entire outcome.</p>
+  </div>
+</section>
 
-      <div class="reveal d2">
-        <span class="eyebrow">Our north star</span>
-        <h2 class="sec-title" id="house-h">The house we are <em>working toward</em>.</h2>
-        <p class="sec-lead" style="margin-bottom:14px;">Four bedrooms. Eight women at a time. A two year lease, a kitchen table, and a door that locks.</p>
-
-        <ul class="milestones">
-          {%- for m in home.milestones %}
-          <li>
-            <span class="dot {{ m.state }}" aria-hidden="true">{% if m.state == 'done' %}&#10003;{% elif m.state == 'now' %}&bull;{% else %}&nbsp;{% endif %}</span>
-            <span class="ms-t"><strong>{{ m.title }}</strong><span>{{ m.detail }}</span></span>
-          </li>
-          {%- endfor %}
-        </ul>
-      </div>
+<!-- ============ 2 · DRAWING TO DOORSTEP (the peak: pinned scrub) ============ -->
+<section class="build" data-build aria-labelledby="build-h">
+  <div class="build-pin">
+    <canvas class="build-canvas" data-build-canvas data-frames="96" aria-hidden="true"></canvas>
+    <img class="build-fallback" src="/assets/images/plan/house-home-1000.webp" alt="" aria-hidden="true">
+    <div class="build-head">
+      <p class="eyebrow">From drawing to doorstep</p>
+      <h2 id="build-h" class="title">Scroll, and watch the plan become a home.</h2>
     </div>
-
-    <div class="stats reveal" style="margin-top:84px;">
-      {%- for st in home.stats %}
-      <div class="stat">
-        <div class="stat-n">{{ st.number }}</div>
-        <div class="stat-l">{{ st.label }}</div>
+    <div class="build-card" aria-live="polite">
+      {%- for ph in plan.phases %}
+      <div class="phase{% if loop.first %} is-on{% endif %}" data-phase="{{ loop.index0 }}">
+        <span class="phase-num">{{ ph.num }}</span>
+        <h3>{{ ph.title }}</h3>
+        <p>{{ ph.body }}</p>
+        {% if ph.here %}<span class="here">We are here</span>{% endif %}
       </div>
       {%- endfor %}
     </div>
-
-    <p class="note reveal" style="margin-top:44px;">{{ home.disclosure }}</p>
+    <ol class="build-bar" aria-hidden="true">
+      {%- for ph in plan.phases %}
+      <li><span>{{ ph.num }}</span><i data-seg="{{ loop.index0 }}"></i></li>
+      {%- endfor %}
+    </ol>
   </div>
 </section>
 
-<section class="pillars sec-paper" id="pillars" aria-labelledby="pillars-h">
-  <div class="pillars-track">
-    <div class="pillars-stage">
-      <div class="wrap">
-        <div class="pillars-head reveal">
-          <div>
-            <span class="eyebrow">How the program works</span>
-            <h2 class="sec-title" id="pillars-h">Four pillars, <em>one outcome</em>.</h2>
-            <p class="sec-lead">Self sufficiency is not one problem. It is four. Solve three and a woman is still stuck.</p>
-          </div>
-          <a class="pillars-more" href="/programs/">Read the full program &rarr;</a>
+<!-- ============ 3 · FUND A LINE ============ -->
+<section class="fund" id="fund" aria-labelledby="fund-h">
+  <div class="fund-head">
+    <p class="eyebrow">Every line has a price</p>
+    <h2 id="fund-h" class="title">You do not give to a cause. <em>You fund a line.</em></h2>
+    <p class="lede">Pick the piece of the house you want to make real. Funded lines turn gold, so everyone can watch the drawing fill in.</p>
+  </div>
+
+  <ol class="lines">
+    {%- for ln in plan.lines %}
+    <li class="ln{% if ln.funded %} is-funded{% endif %}" data-ln>
+      <div class="ln-draw">
+        <img src="/assets/images/plan/{{ ln.drawing }}" alt="{{ ln.drawing_alt }}" width="900" height="900" loading="lazy" decoding="async">
+        <span class="hand ln-words">{{ ln.words }}</span>
+      </div>
+      <div class="ln-body">
+        <span class="ln-num">{{ ("0" ~ loop.index) if loop.index < 10 else loop.index }}</span>
+        <h3>{{ ln.title }}</h3>
+        <p>{{ ln.body }}</p>
+        <div class="ln-meta">
+          {% if ln.funded %}
+            <span class="ln-price is-funded">Funded. Thank you.</span>
+          {% elif ln.price %}
+            <span class="ln-price">{{ ln.price }}</span>
+          {% else %}
+            <span class="ln-price is-pending">Price being quoted</span>
+          {% endif %}
+          {% if not ln.funded %}<a class="btn btn-gold btn-sm" href="{{ give }}?utm_source=site&amp;utm_medium=plan-line&amp;utm_campaign=the-plan&amp;utm_content={{ ln.id }}" target="_blank" rel="noopener">Fund this line</a>{% endif %}
         </div>
-
-        <div class="pillars-view">
-        <article class="pillar is-active" data-pillar="0" aria-hidden="false">
-          <div class="pillar-body">
-            <span class="pillar-num" aria-hidden="true">01</span>
-            <h3>Transitional Housing</h3>
-            <p>Safe, sober housing with case management, life skills coaching, and support groups, plus direct help finding work and permanent housing.</p>
-          </div>
-          <figure class="pillar-figure">
-            <img src="/assets/images/photos/room-morning-day.webp" alt="A bedroom in bright morning light with a neatly made bed and a lamp and Bible on the nightstand." width="1536" height="1024" loading="lazy" decoding="async">
-          </figure>
-        </article>
-        <article class="pillar" data-pillar="1" aria-hidden="true">
-          <div class="pillar-body">
-            <span class="pillar-num" aria-hidden="true">02</span>
-            <h3>Transportation</h3>
-            <p>Bus passes, ride share vouchers, gas cards, and volunteer drivers, so work, court, treatment, and childcare stay reachable.</p>
-          </div>
-          <figure class="pillar-figure">
-            <img src="/assets/images/photos/road-day.webp" alt="A quiet tree-lined residential street in bright morning daylight, the route to work." width="1536" height="1024" loading="lazy" decoding="async">
-          </figure>
-        </article>
-        <article class="pillar" data-pillar="2" aria-hidden="true">
-          <div class="pillar-body">
-            <span class="pillar-num" aria-hidden="true">03</span>
-            <h3>Education</h3>
-            <p>Transforming mindsets, financial literacy, then job readiness, computer skills and tutoring, so she graduates with earning power and confidence.</p>
-          </div>
-          <figure class="pillar-figure">
-            <img src="/assets/images/photos/desk-budget-day.webp" alt="A household budget written by hand in an open notebook on a sunlit table, beside a calculator and a cup of tea." width="1536" height="1024" loading="lazy" decoding="async">
-          </figure>
-        </article>
-        <article class="pillar" data-pillar="3" aria-hidden="true">
-          <div class="pillar-body">
-            <span class="pillar-num" aria-hidden="true">04</span>
-            <h3>Mental Health</h3>
-            <p>Dedicated peer support, strategic community referrals, and professional, Christ-centered counseling rooted in faith, compassion and excellence.</p>
-          </div>
-          <figure class="pillar-figure">
-            <img src="/assets/images/photos/support-day.webp" alt="Two armchairs turned toward each other beside a bright window, with tissues and a mug on a small table between them." width="1536" height="1024" loading="lazy" decoding="async">
-          </figure>
-        </article>
-        </div>
-
-        <ol class="pillar-rail">
-          <li><button type="button" data-goto="0" aria-label="Transitional Housing"><span>01</span>Transitional Housing</button></li>
-          <li><button type="button" data-goto="1" aria-label="Transportation"><span>02</span>Transportation</button></li>
-          <li><button type="button" data-goto="2" aria-label="Education"><span>03</span>Education</button></li>
-          <li><button type="button" data-goto="3" aria-label="Mental Health"><span>04</span>Mental Health</button></li>
-        </ol>
       </div>
-    </div>
+      <figure class="ln-photo">
+        <img src="{{ ln.photo }}" alt="{{ ln.photo_alt }}" width="1536" height="1024" loading="lazy" decoding="async">
+      </figure>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+
+<!-- ============ 4 · FOUR PILLARS (rest) ============ -->
+<section class="pillars" aria-labelledby="pillars-h">
+  <div class="pillars-head">
+    <p class="eyebrow">How the program works</p>
+    <h2 id="pillars-h" class="title">Four pillars hold the bridge.</h2>
+    <p class="lede">Self sufficiency is not one problem. It is four. Solve three and a woman is still stuck.</p>
+  </div>
+  <div class="pillar-row">
+    <article class="pillar">
+      <figure><img src="/assets/images/photos/house-exterior-wide.webp" alt="A single story brick family home in daylight." width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      <span class="pillar-num">01</span>
+      <h3>Transitional Housing</h3>
+      <p>Safe, sober housing with case management, life skills coaching, and support groups, plus direct help finding work and permanent housing.</p>
+    </article>
+    <article class="pillar">
+      <figure><img src="/assets/images/photos/road-day.webp" alt="A quiet tree-lined residential street in bright morning daylight." width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      <span class="pillar-num">02</span>
+      <h3>Transportation</h3>
+      <p>Bus passes, ride share vouchers, gas cards, and volunteer drivers, so work, court, treatment, and childcare stay reachable.</p>
+    </article>
+    <article class="pillar">
+      <figure><img src="/assets/images/photos/desk-budget-day.webp" alt="A household budget written by hand in an open notebook on a sunlit table." width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      <span class="pillar-num">03</span>
+      <h3>Education</h3>
+      <p>Transforming mindsets, financial literacy, then job readiness, computer skills and tutoring, so she graduates with earning power and confidence.</p>
+    </article>
+    <article class="pillar">
+      <figure><img src="/assets/images/photos/support-day.webp" alt="Two armchairs turned toward each other beside a bright window." width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      <span class="pillar-num">04</span>
+      <h3>Mental Health</h3>
+      <p>Dedicated peer support, strategic community referrals, and professional, Christ-centered counseling rooted in faith, compassion and excellence.</p>
+    </article>
   </div>
 </section>
 
+<!-- ============ 5 · THE FOUNDER (rest; the one image that breaks the palette) ============ -->
+<section class="split founder" aria-labelledby="founder-h">
+  <div class="col col-paper founder-text">
+    <p class="eyebrow">Meet the founder</p>
+    <blockquote class="founder-quote">
+      <p id="founder-h">“Twenty years ago, I had no address. <em>But Jesus knew where to find me.</em>”</p>
+    </blockquote>
+    <p class="founder-name">Keisha Ortiz <span>Founder and Board Chair</span></p>
+    <p>Twenty years ago Keisha was homeless with a five-month-old son, until a transitional home on Ross Avenue in Dallas took her family in. Today she serves on the board of that same facility.</p>
+    <p>Four years of volunteering with a discipleship program for people in recovery brought it full circle. A resident asked her what would happen when the program ended. Where would she go? How would she get to work? Oasis is Keisha's answer.</p>
+    <a class="btn btn-outline" href="/founder/">Read Keisha's story</a>
+  </div>
+  <figure class="col founder-photo">
+    <img src="/assets/images/photos/keisha-ortiz.webp" alt="Keisha Ortiz, founder of Oasis Women Center, seated in a living room in warm natural light." width="1000" height="1250" loading="lazy" decoding="async">
+  </figure>
+</section>
 
-<section class="sec sec-white" id="founder" aria-labelledby="founder-h">
-  <div class="wrap">
-    <div class="split">
-      <div class="split-body reveal">
-        <span class="eyebrow">Meet the founder</span>
-        <h2 class="sec-title" id="founder-h">Twenty years ago, I had no address. <em>But Jesus knew where to find me.</em></h2>
-
-        <p class="founder-name">Keisha Ortiz</p>
-        <p class="founder-role">Founder and Board Chair &nbsp;&bull;&nbsp; Denton County, Texas</p>
-
-        <p>Keisha founded Oasis out of the season she lived herself. Twenty years ago she was homeless with a five-month-old son, until a transitional home on Ross Avenue in Dallas took her family in. There was a workforce center where she could look for a job, childcare where her son took his first steps, and volunteers who sat down and built a budget with her.</p>
-
-        <p>Today she serves on the board of directors of that same facility.</p>
-
-        <p>Four years of volunteering with a discipleship program for people in recovery brought it full circle. A resident asked her what would happen when the program ended. Where would she go? How would she get to work? Keisha recognized the questions. She had asked them herself. <strong>In June 2024, Oasis Women Center was born.</strong></p>
-
-        <p style="margin-top:32px;">
-          <a class="btn btn-outline-ink" href="/founder/">Read Keisha's story</a>
-        </p>
-      </div>
-
-      <div class="split-visual reveal d2">
-        {# FOUNDER VIDEO SLOT: when Keisha's 90-second video arrives, it replaces this figure. #}
-        <figure class="figure portrait">
-          <img src="/assets/images/photos/keisha-ortiz.webp" alt="Keisha Ortiz, founder of Oasis Women Center, seated in a living room in warm natural light." width="1000" height="1250" loading="lazy" decoding="async">
-          <figcaption class="figure-tag">Keisha Ortiz, Founder</figcaption>
-        </figure>
-      </div>
-    </div>
+<!-- ============ 6 · WHERE WE ARE (rest; replaces the old progress bar) ============ -->
+<section class="split honest" aria-labelledby="honest-h">
+  <div class="col col-paper">
+    <p class="eyebrow">Where we are, honestly</p>
+    <h2 id="honest-h" class="title">We are pre-house, and we will not pretend otherwise.</h2>
+    <ol class="ledger">
+      {%- for m in home.milestones %}
+      <li class="is-{{ m.state }}">
+        <span class="ledger-dot" aria-hidden="true"></span>
+        <strong>{{ m.title }}</strong>
+        <span>{{ m.detail }}</span>
+        <em class="ledger-state">{% if m.state == 'done' %}Done{% elif m.state == 'now' %}Now{% else %}Next{% endif %}</em>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+  <div class="col col-sand">
+    <p class="eyebrow">More than one way in</p>
+    <h3 class="title title-sm">You do not have to give money to help.</h3>
+    <ul class="ways">
+      <li>A reliable car or 15 passenger van becomes transportation for every resident who needs to get to work.</li>
+      <li>A stack of rideshare gift cards covers a month of court dates and appointments.</li>
+      <li>An hour a week teaching budgeting is the single volunteer role we are actively trying to fill.</li>
+      <li>And if you work at a shelter, a treatment program, a hospital, or a church, the most valuable thing you can send us is a referral.</li>
+    </ul>
+    <a class="btn btn-outline" href="/give/">See all the ways to give</a>
   </div>
 </section>
 
-<section class="sec sec-dark" aria-labelledby="give-h">
-  <div class="wrap">
-    <div class="split flip">
-      <div class="split-visual reveal">
-        <figure class="figure">
-          <img src="/assets/images/photos/giving-day.webp" alt="Car keys, a small stack of gift cards and a folded blanket on a sunlit table." width="1536" height="1024" loading="lazy" decoding="async">
-          <figcaption class="figure-tag">Where the work actually happens</figcaption>
-        </figure>
-      </div>
-      <div class="split-body reveal d2">
-        <span class="eyebrow">More than one way in</span>
-        <h2 class="sec-title" id="give-h">You do not have to give money <em>to help</em>.</h2>
-        <ul class="ways">
-          <li>A reliable car or 15 passenger van becomes transportation for every resident who needs to get to work.</li>
-          <li>A stack of rideshare gift cards covers a month of court dates and appointments.</li>
-          <li>An hour a week teaching budgeting is the single volunteer role we are actively trying to fill.</li>
-          <li>And if you work at a shelter, a treatment program, a hospital, or a church, the most valuable thing you can send us is a referral.</li>
-        </ul>
-        <p style="margin-top:34px;">
-          <a class="btn btn-primary" href="/give/">
-            See all the ways to give
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </p>
+<!-- ============ 7 · THE COLLAPSE (close) ============ -->
+<section class="collapse" data-collapse aria-labelledby="close-h">
+  <div class="collapse-pin">
+    <div class="collapse-paper">
+      <p class="hand collapse-hand">every line, drawn</p>
+      <div class="collapse-sheet" aria-hidden="true">
+        {%- for ln in plan.lines %}
+        <figure><img src="/assets/images/plan/{{ ln.drawing }}" alt="" width="900" height="900" loading="lazy" decoding="async"><figcaption>{{ ln.words }}</figcaption></figure>
+        {%- endfor %}
       </div>
     </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <div class="inner reveal">
-      <h2>Eight women. One house. <em>One year from now.</em></h2>
-      <p>Every gift made today goes toward the lease or purchase of our first transitional home in Denton County.</p>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="{{ site.donation_url }}" target="_blank" rel="noopener">Give toward the house</a>
-        <a class="btn btn-glass" href="/contact/">Talk to us first</a>
+    <div class="collapse-home" data-collapse-home>
+      <img src="/assets/images/plan/house-close-2000.webp" srcset="/assets/images/plan/house-close-1000.webp 1000w, /assets/images/plan/house-close-2000.webp 2000w" sizes="100vw" alt="A tan brick home in bright morning light with two rocking chairs on the porch and flower beds along the front." width="2000" height="1116" loading="lazy" decoding="async">
+      <div class="collapse-scrim" aria-hidden="true"></div>
+    </div>
+    <div class="line line-close" data-collapse-line aria-hidden="true"></div>
+    <div class="collapse-copy">
+      <p class="eyebrow eyebrow-light">The next line is yours</p>
+      <h2 id="close-h" class="display display-light">The drawing is unfinished. <em>That is the point.</em></h2>
+      <div class="collapse-ctas">
+        <a class="btn btn-gold" href="{{ give }}?utm_source=site&amp;utm_medium=close&amp;utm_campaign=the-plan" target="_blank" rel="noopener">Fund the next line</a>
+        <a class="btn btn-glass" href="{{ give }}?utm_source=site&amp;utm_medium=close-monthly&amp;utm_campaign=the-plan" target="_blank" rel="noopener">Give monthly</a>
+        <a class="btn btn-glass" href="/contact/">Volunteer</a>
       </div>
+      <p class="collapse-fine">{{ site.legal_status }}. Gifts are tax deductible. EIN {{ site.ein }}.</p>
     </div>
   </div>
 </section>

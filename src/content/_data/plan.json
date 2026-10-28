@@ -1,0 +1,106 @@
+{
+  "badge": "Denton County, Texas · Christ-centered · 501(c)(3)",
+  "hero_left": "The house is drawn.",
+  "hero_right_pre": "Help us make it",
+  "hero_right_accent": "somewhere safe",
+  "hero_right_post": "to go.",
+  "hero_sub": "Oasis Women Center is opening a transitional home for women who have finished a recovery program. Every line of the house has a price. Every gift draws it in.",
+  "stage_label": "The drawing",
+  "phases": [
+    {
+      "num": "01",
+      "title": "The drawing",
+      "body": "The program is designed, the board is seated, and the house is planned down to the kitchen table.",
+      "here": true
+    },
+    {
+      "num": "02",
+      "title": "The lease or the purchase",
+      "body": "A four-bedroom home in Denton County. This is the first line your gift pays for."
+    },
+    {
+      "num": "03",
+      "title": "The rooms made ready",
+      "body": "Beds, comforters, a lamp and a Bible on every nightstand, and a table big enough for everyone."
+    },
+    {
+      "num": "04",
+      "title": "The door that locks",
+      "body": "Eight women, twelve to twenty-four months each, in a home that is theirs while they rebuild."
+    }
+  ],
+  "lines": [
+    {
+      "id": "address",
+      "words": "an address",
+      "title": "An address of her own",
+      "body": "A job application, a bank account, and a doctor all ask for one. Keisha knows what it is to have none. This line is a month of the lease.",
+      "price": "",
+      "funded": false,
+      "drawing": "line-address-900.webp",
+      "drawing_alt": "A pencil and watercolor drawing of a curbside mailbox with flowers at its base.",
+      "photo": "/assets/images/plan/threshold-1376.webp",
+      "photo_alt": "Looking out through an open front door to a sunlit porch with a white rocking chair and a fern."
+    },
+    {
+      "id": "door",
+      "words": "a door that locks",
+      "title": "A door that locks",
+      "body": "Safety comes first. A lock she can trust, and keys that are hers.",
+      "price": "",
+      "funded": false,
+      "drawing": "line-door-900.webp",
+      "drawing_alt": "A pencil and watercolor drawing of a sage green front door with a key in the deadbolt.",
+      "photo": "/assets/images/photos/giving-day.webp",
+      "photo_alt": "House keys, a small notebook and a folded blanket on a sunlit table."
+    },
+    {
+      "id": "bedroom",
+      "words": "a bedroom made ready",
+      "title": "A bedroom made ready",
+      "body": "A comforter, throw pillows, a picture on the wall, and a lamp and a Bible on the nightstand. Four bedrooms, made ready for eight women.",
+      "price": "",
+      "funded": false,
+      "drawing": "line-bedroom-900.webp",
+      "drawing_alt": "A pencil and watercolor drawing of a made twin bed beside a nightstand with a lit lamp and a Bible.",
+      "photo": "/assets/images/photos/room-morning-day.webp",
+      "photo_alt": "A bedroom in bright morning light with a neatly made bed and a lamp and Bible on the nightstand."
+    },
+    {
+      "id": "window",
+      "words": "a window",
+      "title": "A window to wake up to",
+      "body": "Curtains that open, morning light, a plant on the sill. Small things that tell her this is home.",
+      "price": "",
+      "funded": false,
+      "drawing": "line-window-900.webp",
+      "drawing_alt": "A pencil and watercolor drawing of a brick window with curtains open and a plant on the sill.",
+      "photo": "/assets/images/photos/room-morning.webp",
+      "photo_alt": "Soft morning light through sheer curtains across a quiet bedroom."
+    },
+    {
+      "id": "table",
+      "words": "the kitchen table",
+      "title": "The kitchen table",
+      "body": "Where meals are shared, budgets get written, and nobody eats alone.",
+      "price": "",
+      "funded": false,
+      "drawing": "line-table-900.webp",
+      "drawing_alt": "A pencil and watercolor drawing of a wooden kitchen table with two chairs and two mugs.",
+      "photo": "/assets/images/photos/kitchen-table.webp",
+      "photo_alt": "Two mugs and a small vase on a wooden kitchen table by a window."
+    },
+    {
+      "id": "transit",
+      "words": "a ride to work",
+      "title": "A ride to work",
+      "body": "Bus passes, ride share vouchers, and gas cards, so work, court, treatment, and childcare stay within reach.",
+      "price": "",
+      "funded": false,
+      "drawing": "line-transit-900.webp",
+      "drawing_alt": "A pencil and watercolor drawing of a bus stop sign and a bench under a small tree.",
+      "photo": "/assets/images/photos/road-day.webp",
+      "photo_alt": "A quiet tree-lined residential street in bright morning daylight."
+    }
+  ]
+}

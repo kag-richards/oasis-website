@@ -70,6 +70,41 @@ collections:
   # ── PROSE PAGES ───────────────────────────────────────────────────────────
   # About, Programs, Contact. Markdown only. The layout-heavy pages (home, give,
   # news) are .njk and are intentionally not listed here.
+      - name: "plan"
+        label: "The Plan (every line of the house)"
+        file: "src/content/_data/plan.json"
+        fields:
+          - {label: "Badge", name: "badge", widget: "string"}
+          - {label: "Hero, drawing side", name: "hero_left", widget: "string"}
+          - {label: "Hero, home side (before the gold words)", name: "hero_right_pre", widget: "string"}
+          - {label: "Hero, home side (gold words)", name: "hero_right_accent", widget: "string"}
+          - {label: "Hero, home side (after the gold words)", name: "hero_right_post", widget: "string"}
+          - {label: "Hero sentence", name: "hero_sub", widget: "text"}
+          - {label: "We are here (stage name on the gold line)", name: "stage_label", widget: "string", hint: "Change this as Oasis moves forward, for example: The lease."}
+          - label: "Phases (drawing to doorstep)"
+            name: "phases"
+            widget: "list"
+            allow_add: false
+            fields:
+              - {label: "Number", name: "num", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "body", widget: "text"}
+              - {label: "We are here", name: "here", widget: "boolean", required: false, hint: "Tick this on the phase Oasis is in right now. Only one."}
+          - label: "Lines (each piece of the house a donor can fund)"
+            name: "lines"
+            widget: "list"
+            fields:
+              - {label: "Short id (no spaces, used in donation tracking)", name: "id", widget: "string"}
+              - {label: "Her words (handwritten under the drawing)", name: "words", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "body", widget: "text"}
+              - {label: "Price", name: "price", widget: "string", required: false, hint: "Real quotes only, for example $1,850. Leave empty and the site shows Price being quoted."}
+              - {label: "Funded", name: "funded", widget: "boolean", required: false, hint: "Tick when this line is fully paid for. It turns gold and the button hides."}
+              - {label: "Drawing file", name: "drawing", widget: "string"}
+              - {label: "Drawing description", name: "drawing_alt", widget: "string"}
+              - {label: "Photo", name: "photo", widget: "image"}
+              - {label: "Photo description", name: "photo_alt", widget: "string"}
+
   - name: "pages"
     label: "Pages"
     folder: "src/content/pages"
