@@ -14,7 +14,7 @@ npm run build    # outputs to _site/
 
 | URL | Source |
 |---|---|
-| `/` | `src/content/pages/index.njk` |
+| `/` | `src/content/pages/index.njk` (The Plan home page, layout `layouts/plan.njk`, words and prices in `src/content/_data/plan.json`) |
 | `/about/` | `src/content/pages/about.md` |
 | `/programs/` | `src/content/pages/programs.md` |
 | `/give/` | `src/content/pages/give.njk` |
@@ -118,16 +118,15 @@ there are real ones.
 
 ## Still to wire up
 
-1. ~~GitHub repo~~ — done. `kag-richards/oasis-website`, private.
+1. ~~GitHub repo~~ — done. `kag-richards/oasis-website`, **public** (a free account needs a public repo for Pages).
 2. ~~Decap backend~~ — done. Points at `kag-richards/oasis-website`.
    **Update `backend.repo` if the repo is transferred.**
 3. **Decap OAuth** via the Netlify proxy — outstanding. Login will not work
    until this exists.
 4. **Keisha as repo collaborator** — outstanding. Without it Decap authenticates
    her and then silently fails to save.
-5. **GitHub Pages** — outstanding, and gated on Keisha approving the content.
-   Enabling it publishes her EIN, phone, and organization name at a public URL.
-   Pages on a free account also requires the repo to be public.
+5. ~~GitHub Pages~~ — live as a preview at `kag-richards.github.io/oasis-website/` since 2026-08-09. The custom
+   domain file is deliberately left out of the preview build, so her real site is untouched until the DNS cutover.
 6. **DNS at GoDaddy** — blocked on 2FA. Full change set, including the Google
    Workspace MX records that must survive, is in `../DNS-CUTOVER.md`.
 5. **Stripe**: Keisha creates the account so payouts are in her name. Paste the
@@ -135,6 +134,31 @@ there are real ones.
    give page falls back to an email link automatically.
 6. **Photos**: only asset in hand is her LinkedIn headshot. Hero currently runs
    without a background image, which is fine, but a real photo would lift it.
+
+## The Plan home page (built 2026-10-27)
+
+The home page is one house shown two ways on a gold line: a pencil and watercolor drawing (where Oasis is today) and the
+real home. Scrolling turns the drawing into the home, and every gift fills in a line.
+
+**What Keisha edits, in `/admin/` under Homepage, then "The Plan (every line of the house)":**
+- **Lines**: each piece of the house a donor can fund. Title, text, her handwritten words, a **Price**, and a **Funded**
+  checkbox. Leave Price empty and the page shows "Price being quoted". Never enter a number that is not a real quote.
+  Tick Funded when a line is paid for: it turns gold and the Fund button hides.
+- **We are here**: the stage name on the gold line, and the "We are here" tick on one of the four phases. Move both as
+  Oasis moves forward (for example: the lease signed).
+- **Hero words**, the four phases, and the small print.
+
+**Files**
+- `src/_includes/layouts/plan.njk`, `src/assets/plan.css`, `src/assets/plan.js`: the page, its look and its motion.
+- `src/assets/images/plan/`: the house drawing and photos, the six line drawings, and `frames/1280` and `frames/720`
+  (96 frames each, taken from one 10 second video of the drawing becoming the home). To change the video, re-export 96
+  frames at those two widths with the same numbering (`f001.webp` to `f096.webp`).
+- The other pages (About, Founder, Programs, Give, Contact) still use `layouts/base.njk` and `src/assets/site.css`.
+
+**Keep it fast.** The page does not run a frame loop, and it avoids full-screen blends, backdrop blurs and CSS variables
+set on big containers, because those made scrolling stall on older laptops. Before adding an effect, scroll the page on a
+slow machine. The frame images are the heaviest files (about 8 MB on a desktop); halving the frame count is the first
+thing to try if the page needs to be lighter.
 
 ## Open questions for Keisha
 
