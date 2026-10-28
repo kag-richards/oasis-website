@@ -18,10 +18,11 @@ meta_description: Oasis Women Center is opening a Christ-centered transitional h
     <picture class="hero-img hero-drawing">
       <img src="/assets/images/plan/house-drawing-2000.webp" srcset="/assets/images/plan/house-drawing-1000.webp 1000w, /assets/images/plan/house-drawing-2000.webp 2000w" sizes="100vw" alt="A pencil and watercolor drawing of a tan brick house with two rocking chairs on the front porch." width="2000" height="1116" fetchpriority="high" decoding="async">
     </picture>
-    <picture class="hero-img hero-home" data-hero-home>
+    <div class="hero-scrim-l" aria-hidden="true"></div>
+    <div class="hero-img hero-home" data-hero-home>
       <img src="/assets/images/plan/house-home-2000.webp" srcset="/assets/images/plan/house-home-1000.webp 1000w, /assets/images/plan/house-home-2000.webp 2000w" sizes="100vw" alt="The same house as a real home: two white rocking chairs and a throw on the porch, a lamp lit inside, the porch light on in the morning." width="2000" height="1116" decoding="async">
-    </picture>
-    <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="hero-scrim-r" aria-hidden="true"></div>
+    </div>
 
     <div class="line" data-line aria-hidden="true">
       <span class="line-knob"><b>We are here</b> {{ plan.stage_label }}</span>
@@ -109,6 +110,8 @@ meta_description: Oasis Women Center is opening a Christ-centered transitional h
     <p class="lede">Pick the piece of the house you want to make real. Funded lines turn gold, so everyone can watch the drawing fill in.</p>
   </div>
 
+  <div class="lines-wrap">
+  <span class="spine" aria-hidden="true"><i data-spine></i></span>
   <ol class="lines">
     {%- for ln in plan.lines %}
     <li class="ln{% if ln.funded %} is-funded{% endif %}" data-ln>
@@ -137,6 +140,7 @@ meta_description: Oasis Women Center is opening a Christ-centered transitional h
     </li>
     {%- endfor %}
   </ol>
+  </div>
 </section>
 
 <!-- ============ 4 · FOUR PILLARS (rest) ============ -->
