@@ -270,3 +270,21 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   measure();
 })();
+
+/* testimonial video: a still with one play button; the native controls (and captions) take over on play.
+   Without JS the video keeps its native controls. */
+(function () {
+  var box = document.querySelector("[data-voice]");
+  if (!box) return;
+  var v = box.querySelector("video"), b = box.querySelector(".print-play"), print = box.closest(".print");
+  if (!v || !b) return;
+  v.removeAttribute("controls");
+  b.hidden = false;
+  b.addEventListener("click", function () {
+    v.setAttribute("controls", "");
+    b.hidden = true;
+    if (print) print.classList.add("is-playing");
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { v.removeAttribute("controls"); b.hidden = false; });
+  });
+})();

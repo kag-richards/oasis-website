@@ -240,30 +240,62 @@ meta_description: Oasis Women Center is opening a Christ-centered transitional h
   </div>
 </section>
 
-<!-- ============ 6b · FROM ANOTHER NONPROFIT (rest; Rita Stevens, 10/30) ============ -->
-{# Captions ship as a WebVTT track so they can be turned off and read by screen readers.
-   Quote below is Mrs. Rita's own words from the video, unedited. Keep it that way. #}
-<section class="split voice" aria-labelledby="voice-h">
-  <div class="col col-ink voice-stage">
-    <figure class="voice-video">
-      <video controls preload="none" playsinline poster="/assets/video/rita-stevens-poster.webp" width="720" height="1600" aria-label="Rita Stevens of Silent Voices talks about working alongside Keisha Ortiz">
-        <source src="/assets/video/rita-stevens-testimonial.mp4" type="video/mp4">
-        <track kind="captions" srclang="en" label="English" src="/assets/video/rita-stevens-testimonial.en.vtt" default>
-        Your browser does not play video. Rita Stevens of Silent Voices says Keisha Ortiz is always dedicated, on time, and an asset to any organization she works with.
-      </video>
-      <figcaption>Rita Stevens, Silent Voices <span>0:52</span></figcaption>
-    </figure>
+<!-- ============ 6b · VOICES (rest; proof. One featured video, written voices as they arrive) ============ -->
+{# Data lives in src/content/_data/voices.json. "featured" is the video; "written" is a list, each entry
+   { approved, quote, name, role }. Nothing renders unless approved is true: no testimonial goes live
+   without the person's OK. Quotes are the speaker's own words, unedited. Captions ship as a WebVTT
+   track so they can be turned off and read by screen readers. #}
+{%- set v = voices.featured %}
+{%- if v and v.approved %}
+<section class="voices" aria-label="Testimonials">
+  <div class="split voice">
+    <div class="col col-ink voice-stage">
+      <figure class="print">
+        <div class="print-frame">
+          <span class="print-tape" aria-hidden="true"></span>
+          <div class="print-media" data-voice>
+            <video controls preload="none" playsinline poster="{{ v.poster }}" width="{{ v.width }}" height="{{ v.height }}" aria-label="{{ v.name }} of {{ v.org }} talks about working alongside Keisha Ortiz">
+              <source src="{{ v.video }}" type="video/mp4">
+              <track kind="captions" srclang="en" label="English" src="{{ v.captions }}" default>
+              Your browser does not play video. {{ v.name }} of {{ v.org }} says: {{ v.quote }}
+            </video>
+            <button type="button" class="print-play" hidden aria-label="Play video: {{ v.name }}, {{ v.org }}, {{ v.duration }}">
+              <span class="print-play-btn" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span>
+              <span class="print-play-lbl">Hear it from her &middot; {{ v.duration }}</span>
+            </button>
+          </div>
+          <figcaption class="print-cap hand">{{ v.name }}</figcaption>
+        </div>
+      </figure>
+    </div>
+    <div class="col col-paper voice-text">
+      <p class="eyebrow">{{ v.label }}</p>
+      <blockquote class="voice-quote">
+        {%- set parts = v.quote.split(v.emphasis) if v.emphasis else [v.quote] %}
+        <p>&ldquo;{{ parts[0] }}{% if parts.length > 1 %}<em>{{ v.emphasis }}</em>{{ parts[1] }}{% endif %}&rdquo;</p>
+      </blockquote>
+      <p class="founder-name">{{ v.name }} <span>{{ v.org }}</span></p>
+      <p class="voice-context">{{ v.context }}</p>
+    </div>
   </div>
-  <div class="col col-paper voice-text">
-    <p class="eyebrow">From another nonprofit</p>
-    <h2 id="voice-h" class="title">Another nonprofit already trusts her with its work.</h2>
-    <blockquote class="voice-quote">
-      <p>“She is always <em>dedicated, on time,</em> and she makes sure that she's following through on those tasks.”</p>
-    </blockquote>
-    <p class="founder-name">Rita Stevens <span>Silent Voices</span></p>
-    <p>Keisha has served as the volunteer coordinator on the board of Silent Voices. Nonprofits do their best work side by side, and Oasis is one more hand on the same work.</p>
+  {%- set more = voices.written | selectattr('approved') %}
+  {%- if more | length %}
+  <div class="voices-more">
+    <div class="voices-more-in">
+      <p class="eyebrow">More from the people who know her</p>
+      <div class="voices-grid">
+        {%- for w in more %}
+        <figure class="note">
+          <blockquote><p>&ldquo;{{ w.quote }}&rdquo;</p></blockquote>
+          <figcaption><strong>{{ w.name }}</strong>{% if w.role %}<span>{{ w.role }}</span>{% endif %}</figcaption>
+        </figure>
+        {%- endfor %}
+      </div>
+    </div>
   </div>
+  {%- endif %}
 </section>
+{%- endif %}
 
 <!-- ============ 7 · THE COLLAPSE (close) ============ -->
 <section class="collapse" data-collapse aria-labelledby="close-h">

@@ -1,0 +1,18 @@
+{
+  "featured": {
+    "approved": true,
+    "label": "From another nonprofit",
+    "name": "Rita Stevens",
+    "org": "Silent Voices",
+    "quote": "She is always dedicated, on time, and she makes sure that she’s following through on those tasks.",
+    "emphasis": "dedicated, on time,",
+    "context": "Keisha has served as the volunteer coordinator on the board of Silent Voices. Nonprofits do their best work side by side, and Oasis is one more hand on the same work.",
+    "video": "/assets/video/rita-stevens-testimonial.mp4",
+    "poster": "/assets/video/rita-stevens-poster.webp",
+    "captions": "/assets/video/rita-stevens-testimonial.en.vtt",
+    "duration": "0:52",
+    "width": 720,
+    "height": 1600
+  },
+  "written": []
+}
