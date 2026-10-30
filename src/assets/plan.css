@@ -210,6 +210,14 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .pillar h3 { font: 300 clamp(24px, 1.9vw, 30px)/1.1 var(--display); color: var(--pine); letter-spacing: -.015em; margin: 10px 0 10px; }
 .pillar p { font-size: 15.5px; color: var(--muted); margin: 0; }
 
+/* ---------- 4b · mission and vision (rest) ---------- */
+.mv { background: var(--pine); color: rgba(251, 245, 236, .9); padding: clamp(64px, 9vw, 130px) var(--gutter); }
+.mv-in { max-width: 1240px; margin: 0 auto; }
+.mv-row { display: grid; grid-template-columns: minmax(110px, 1fr) 5fr; gap: 20px clamp(24px, 5vw, 88px); padding: clamp(30px, 4vw, 54px) 0; border-top: 1px solid rgba(245, 200, 119, .4); }
+.mv-row:last-child { border-bottom: 1px solid rgba(245, 200, 119, .4); }
+.mv-label { font: 600 12px/1.2 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-light); padding-top: .95em; }
+.mv-statement { font: 300 clamp(27px, 3.3vw, 50px)/1.18 var(--display); letter-spacing: -.02em; color: var(--paper-hi); max-width: 30ch; margin: 0; text-wrap: pretty; }
+
 /* ---------- 5 · founder ---------- */
 .founder-text { display: flex; flex-direction: column; justify-content: center; }
 .founder-quote { margin: 0 0 28px; }
@@ -322,6 +330,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .spine { display: none; }
   .pillar-row { grid-template-columns: 1fr; gap: 44px; }
   .pillar figure { aspect-ratio: 4 / 3.4; }
+  .mv-row { grid-template-columns: 1fr; gap: 8px; }
+  .mv-label { padding-top: 0; }
   .founder-photo { min-height: 0; aspect-ratio: 4 / 5; }
   .ledger li { grid-template-columns: 22px 1fr; }
   .ledger-state { grid-column: 2; grid-row: auto; }

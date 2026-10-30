@@ -69,6 +69,9 @@
 .ed .lede-xl { font-size: clamp(24px, 2.4vw, 36px); line-height: 1.28; max-width: 36ch; }
 .bd-pine .lede-xl, .bd-pine .ed .lede-xl { color: var(--paper-hi); }
 .lede-xl em { color: var(--gold-deep); }
+.ed .mv-h { font: 600 12px/1.2 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 14px; }
+.ed .mv-h:not(:first-child) { margin-top: 44px; padding-top: 34px; border-top: 1px solid rgba(245, 200, 119, .4); }
+.bd-pine .ed .mv-h { color: var(--gold-light); }
 .bd-pine .lede-xl em { color: var(--gold-light); }
 .stmt { font: 300 clamp(34px, 4.2vw, 64px)/1.08 var(--display); letter-spacing: -.026em; color: var(--pine); max-width: 20ch; margin: 0 0 .5em; text-wrap: balance; }
 .stmt em { font-style: italic; color: var(--gold-deep); }
