@@ -122,16 +122,15 @@ there are real ones.
 
 ## Still to wire up
 
-1. ~~GitHub repo~~ — done. `kag-richards/oasis-website`, **public** (a free account needs a public repo for Pages).
-2. ~~Decap backend~~ — done. Points at `kag-richards/oasis-website`.
-   **Update `backend.repo` if the repo is transferred.**
+1. ~~GitHub repo~~ — done. Moved 2026-10-30 to `Oasis-Women-Center/oasis-website` (client-owned org), **public** (a free account needs a public repo for Pages).
+2. **Decap backend** — `src/admin/config.yml` `backend.repo` STILL says `kag-richards/oasis-website`; **the repo was transferred 2026-10-30, so change it to `Oasis-Women-Center/oasis-website`.**
 3. **Decap OAuth** via the Netlify proxy — outstanding. Login will not work
    until this exists.
 4. **Keisha as repo collaborator** — outstanding. Without it Decap authenticates
    her and then silently fails to save.
-5. ~~GitHub Pages~~ — live as a preview at `kag-richards.github.io/oasis-website/` since 2026-08-09. The custom
-   domain file is deliberately left out of the preview build, so her real site is untouched until the DNS cutover.
-6. **DNS at GoDaddy** — blocked on 2FA. Full change set, including the Google
+5. ~~GitHub Pages~~ — **LIVE at https://oasiswomencenter.org since 2026-10-30** (root build, custom domain set, HTTPS enforced). The old
+   `kag-richards.github.io/oasis-website/` preview is gone (404).
+6. ~~DNS at GoDaddy~~ — done 2026-10-30 (see `../DNS-CUTOVER.md`). Full change set, including the Google
    Workspace MX records that must survive, is in `../DNS-CUTOVER.md`.
 5. **Stripe**: Keisha creates the account so payouts are in her name. Paste the
    checkout link into Site Settings > Donation Link in `/admin/`. Until then the
