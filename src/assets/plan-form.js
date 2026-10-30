@@ -43,6 +43,12 @@
       return;
     }
 
+    // The workspace form has name / email / phone / message only, so the dropdown rides at the top of the message.
+    var interest = form.querySelector('[data-ls-interest]');
+    if (interest && interest.value) {
+      values.message = 'I would like to: ' + interest.value + '\n\n' + values.message;
+    }
+
     var btn = form.querySelector('button[type="submit"]');
     var label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }

@@ -149,7 +149,9 @@
 .field .opt { font-weight: 500; letter-spacing: 0; text-transform: none; }
 .field input, .field textarea { display: block; width: 100%; background: transparent; border: 0; border-bottom: 1.5px solid rgba(23, 58, 51, .35); border-radius: 0; padding: 12px 0 11px; font: 400 19px/1.4 var(--sans); color: var(--ink); transition: border-color .25s, box-shadow .25s; }
 .field textarea { resize: vertical; min-height: 130px; }
-.field input:hover, .field textarea:hover { border-bottom-color: var(--pine); }
+.field select { display: block; width: 100%; background-color: transparent; border: 0; border-bottom: 1.5px solid rgba(23, 58, 51, .35); border-radius: 0; padding: 12px 34px 11px 0; font: 400 19px/1.4 var(--sans); color: var(--ink); cursor: pointer; transition: border-color .25s, box-shadow .25s; -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none' stroke='%23173A33' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 4px center; }
+.field input:hover, .field textarea:hover, .field select:hover { border-bottom-color: var(--pine); }
+.field select:focus { outline: none; border-bottom-color: var(--gold); box-shadow: 0 1.5px 0 var(--gold); }
 .field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--gold); box-shadow: 0 1.5px 0 var(--gold); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-notice { min-height: 1.6em; margin: 4px 0 18px; font-size: 15.5px; line-height: 1.5; }
